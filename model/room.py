@@ -9,6 +9,9 @@ class Room:
 
         # TODO: this should be UNSEEN, so Mom can gradually visit rooms and
         # not see rooms she hasn't encountered on the map
+
+        # Stella, just an FYI, if you want to see all rooms on the map when
+        # printing it you can set this to RoomStatus.VISITED
         self.status = RoomStatus.SEEN
 
         match room_type:
