@@ -7,12 +7,14 @@ from model.room import Room
 
 def init_l1_map() -> Map:
     map = Map(3, 5)
-    map[1, 0] = Room(RoomType.HYGGE_L1)
-    map[1, 1] = Room(RoomType.COMBAT_L1, "full email inbox")
-    map[2, 1] = Room(RoomType.BODY_PUMP_L1)
-    map[0, 1] = Room(RoomType.LULU_L1)
-    map[1, 2] = Room(RoomType.COMBAT_L1, "dissatisfied clients")
-    map[2, 2] = Room(RoomType.KITCHEN_L1)
-    map[1, 3] = Room(RoomType.COMBAT_L1, "incompetent coworkers")
-    map[0, 3] = Room(RoomType.BAKERY_L1)
-    map[1, 4] = Room(RoomType.BOSS_L1)
+    map.set_room(Room(RoomType.HYGGE_L1), 1, 0)
+    map.set_room(Room(RoomType.COMBAT_L1, "full email inbox"), 1, 1)
+    map.set_room(Room(RoomType.BODY_PUMP_L1), 2, 1)
+    map.set_room(Room(RoomType.LULU_L1), 0, 1)
+    map.set_room(Room(RoomType.COMBAT_L1, "dissatisfied clients"), 1, 2)
+    map.set_room(Room(RoomType.KITCHEN_L1), 2, 2)
+    map.set_room(Room(RoomType.COMBAT_L1, "incompetent coworkers"), 1, 3)
+    map.set_room(Room(RoomType.BAKERY_L1), 0, 3)
+    map.set_room(Room(RoomType.BOSS_L1), 1, 4)
+    
+    return map

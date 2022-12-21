@@ -1,4 +1,5 @@
-MAP_CELL_SIZE = 10
+MAP_CELL_WIDTH = 15
+MAP_CELL_HEIGHT = 6
 MAP_BORDER_CHAR = '#'
 
 # Text for printing map
