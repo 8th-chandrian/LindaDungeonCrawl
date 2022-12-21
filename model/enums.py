@@ -15,3 +15,11 @@ class RoomType(Enum):
     HYGGE_L1 = 9
 
     # Second floor rooms
+    COMBAT_L2 = 10
+    BOSS_L2 = 11
+    KITCHEN_L2 = 12
+    HYGGE_L2 = 13
+    DAIRY_L2 = 14
+    WEGMANS_L2 = 15
+    LAPTOP_L2 = 16
+    

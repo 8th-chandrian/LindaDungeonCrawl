@@ -35,6 +35,28 @@ class Room:
                 self.room_text = HYGGE_ROOM_TEXT
 
             # Second floor rooms
+            case RoomType.COMBAT_L2:
+                self.description = description
+                self.room_text = COMBAT_ROOM_TEXT
+            case RoomType.BOSS_L2:
+                self.description = "second floor boss fight"
+                self.room_text = BOSS_ROOM_TEXT
+            case RoomType.KITCHEN_L2:
+                self.description = "kitchen"
+                self.room_text = KITCHEN_ROOM_TEXT
+            case RoomType.HYGGE_L2:
+                self.description = "hygge"
+                self.room_text = HYGGE_ROOM_TEXT
+            case RoomType.DAIRY_L2:
+                self.description = "dairy"
+                self.room_text = DAIRY_ROOM_TEXT
+            case RoomType.WEGMANS_L2:
+                self.description = "wegmans"
+                self.room_text = WEGMANS_ROOM_TEXT
+            case RoomType.LAPTOP_L2:
+                self.description = "laptop room"
+                self.room_text = LAPTOP_ROOM_TEXT
+            
 
             # default    
             case _:

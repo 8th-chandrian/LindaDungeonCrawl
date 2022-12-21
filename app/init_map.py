@@ -18,3 +18,17 @@ def init_l1_map() -> Map:
     map.set_room(Room(RoomType.BOSS_L1), 1, 4)
     
     return map
+
+def init_l2_map() -> Map:
+    map = Map(3, 5)
+    map.set_room(Room(RoomType.COMBAT_L2, "IRS"), 0, 0)
+    map.set_room(Room(RoomType.KITCHEN_L2), 0, 1)
+    map.set_room(Room(RoomType.HYGGE_L2), 1, 1)
+    map.set_room(Room(RoomType.COMBAT_L2, "problematic clients"), 1, 2)
+    map.set_room(Room(RoomType.COMBAT_L2, "Big John"), 1, 3)
+    map.set_room(Room(RoomType.BOSS_L2), 1, 4)
+    map.set_room(Room(RoomType.DAIRY_L2), 2, 2)
+    map.set_room(Room(RoomType.WEGMANS_L2), 2, 3)
+    map.set_room(Room(RoomType.LAPTOP_L2), 0, 3)
+
+    return map
