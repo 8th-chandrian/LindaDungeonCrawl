@@ -23,3 +23,13 @@ class RoomType(Enum):
     WEGMANS_L2 = 15
     LAPTOP_L2 = 16
     
+
+class RoomStatus(Enum):
+    # Have not been in or adjacent to this room
+    UNSEEN = 1
+
+    # Have been adjacent to this room but not yet entered
+    SEEN = 2
+
+    # Have visited this room
+    VISITED = 3

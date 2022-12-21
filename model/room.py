@@ -1,10 +1,16 @@
 from constants import *
-from model.enums import RoomType
+from model.enums import RoomStatus, RoomType
 
 
 class Room:
     def __init__(self, room_type: RoomType, description: str = ''):
         self.room_text = []
+        self.type = room_type
+
+        # TODO: this should be UNSEEN, so Mom can gradually visit rooms and
+        # not see rooms she hasn't encountered on the map
+        self.status = RoomStatus.SEEN
+
         match room_type:
             case RoomType.EMPTY:
                 self.description = "empty room (you can't go here)"
@@ -61,3 +67,6 @@ class Room:
             # default    
             case _:
                 print("IDK yo this is the default, we shouldn't be here")
+    
+    def set_status(self, status: RoomStatus):
+        self.status = status

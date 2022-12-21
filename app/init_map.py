@@ -3,8 +3,6 @@ from model.enums import RoomType
 from model.map import Map
 from model.room import Room
 
-# TODO add layout of map here (how this should be conceptualized on x and y axis, where 0,0 is)
-
 def init_l1_map() -> Map:
     map = Map(3, 5)
     map.set_room(Room(RoomType.HYGGE_L1), 1, 0)
@@ -16,6 +14,8 @@ def init_l1_map() -> Map:
     map.set_room(Room(RoomType.COMBAT_L1, "incompetent coworkers"), 1, 3)
     map.set_room(Room(RoomType.BAKERY_L1), 0, 3)
     map.set_room(Room(RoomType.BOSS_L1), 1, 4)
+
+    map.set_starting_room_coords(1, 0)
     
     return map
 

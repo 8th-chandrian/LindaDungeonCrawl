@@ -6,8 +6,8 @@ global current_room
 
 @when("print")
 def print_map():
-    map = init_l2_map()
-    map.debug_print()
+    map = init_l1_map()
+    map.print()
 
 
 start()
