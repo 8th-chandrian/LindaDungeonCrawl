@@ -1,75 +1,67 @@
 from constants import *
 from model.enums import RoomStatus, RoomType
+from lib.adventurelib import Room
 
+def init_room(room_type: RoomType, description: str = '') -> Room:
+    room = Room(description)
+    room.type = room_type
+    room.status = RoomStatus.UNSEEN
 
-class Room:
-    def __init__(self, room_type: RoomType, description: str = ''):
-        self.room_text = []
-        self.type = room_type
-
-        # TODO: this should be UNSEEN, so Mom can gradually visit rooms and
-        # not see rooms she hasn't encountered on the map
-
-        # Stella, just an FYI, if you want to see all rooms on the map when
-        # printing it you can set this to RoomStatus.VISITED
-        self.status = RoomStatus.SEEN
-
-        match room_type:
+    match room_type:
             case RoomType.EMPTY:
-                self.description = "empty room (you can't go here)"
+                room.description = "empty room (you can't go here)"
             
             # First floor rooms
             case RoomType.COMBAT_L1:
-                self.description = description
-                self.room_text = COMBAT_ROOM_TEXT
+                room.description = description
+                room.room_text = COMBAT_ROOM_TEXT
             case RoomType.INTRO_FIGHT_L1:
-                self.description = "intro fight with Jackie"
+                room.description = "intro fight with Jackie"
             case RoomType.BOSS_L1:
-                self.description = "first floor boss fight"
-                self.room_text = BOSS_ROOM_TEXT
+                room.description = "first floor boss fight"
+                room.room_text = BOSS_ROOM_TEXT
             case RoomType.BAKERY_L1:
-                self.description = "bakery"
-                self.room_text = BAKERY_ROOM_TEXT
+                room.description = "bakery"
+                room.room_text = BAKERY_ROOM_TEXT
             case RoomType.LULU_L1:
-                self.description = "lululemon"
-                self.room_text = LULU_ROOM_TEXT
+                room.description = "lululemon"
+                room.room_text = LULU_ROOM_TEXT
             case RoomType.KITCHEN_L1:
-                self.description = "kitchen"
-                self.room_text = KITCHEN_ROOM_TEXT
+                room.description = "kitchen"
+                room.room_text = KITCHEN_ROOM_TEXT
             case RoomType.BODY_PUMP_L1:
-                self.description = "body pump"
-                self.room_text = BODY_PUMP_ROOM_TEXT
+                room.description = "body pump"
+                room.room_text = BODY_PUMP_ROOM_TEXT
             case RoomType.HYGGE_L1:
-                self.description = "hygge"
-                self.room_text = HYGGE_ROOM_TEXT
+                room.description = "hygge"
+                room.room_text = HYGGE_ROOM_TEXT
 
             # Second floor rooms
             case RoomType.COMBAT_L2:
-                self.description = description
-                self.room_text = COMBAT_ROOM_TEXT
+                room.description = description
+                room.room_text = COMBAT_ROOM_TEXT
             case RoomType.BOSS_L2:
-                self.description = "second floor boss fight"
-                self.room_text = BOSS_ROOM_TEXT
+                room.description = "second floor boss fight"
+                room.room_text = BOSS_ROOM_TEXT
             case RoomType.KITCHEN_L2:
-                self.description = "kitchen"
-                self.room_text = KITCHEN_ROOM_TEXT
+                room.description = "kitchen"
+                room.room_text = KITCHEN_ROOM_TEXT
             case RoomType.HYGGE_L2:
-                self.description = "hygge"
-                self.room_text = HYGGE_ROOM_TEXT
+                room.description = "hygge"
+                room.room_text = HYGGE_ROOM_TEXT
             case RoomType.DAIRY_L2:
-                self.description = "dairy"
-                self.room_text = DAIRY_ROOM_TEXT
+                room.description = "dairy"
+                room.room_text = DAIRY_ROOM_TEXT
             case RoomType.WEGMANS_L2:
-                self.description = "wegmans"
-                self.room_text = WEGMANS_ROOM_TEXT
+                room.description = "wegmans"
+                room.room_text = WEGMANS_ROOM_TEXT
             case RoomType.LAPTOP_L2:
-                self.description = "laptop room"
-                self.room_text = LAPTOP_ROOM_TEXT
+                room.description = "laptop room"
+                room.room_text = LAPTOP_ROOM_TEXT
             
 
             # default    
             case _:
                 print("IDK yo this is the default, we shouldn't be here")
-    
-    def set_status(self, status: RoomStatus):
-        self.status = status
+
+    return room

@@ -10,7 +10,3 @@ LULU_ROOM_TEXT = ['Lulu', 'Lemon']
 KITCHEN_ROOM_TEXT = ['Kitchen']
 BAKERY_ROOM_TEXT = ['Village', 'Bakery']
 BOSS_ROOM_TEXT = ['BOSS', 'FIGHT']
-
-DAIRY_ROOM_TEXT = ['Pittsford', 'Dairy']
-WEGMANS_ROOM_TEXT = ['Wegmans']
-LAPTOP_ROOM_TEXT = ['hygge', 'zone?']
