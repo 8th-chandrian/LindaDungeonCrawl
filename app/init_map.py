@@ -31,4 +31,6 @@ def init_l2_map() -> Map:
     map.init_map_cell(init_room(RoomType.WEGMANS_L2), 2, 3)
     map.init_map_cell(init_room(RoomType.LAPTOP_L2), 0, 3)
 
+    map.set_current_room(1, 1)
+
     return map

@@ -4,7 +4,7 @@ from lib.adventurelib import when, start
 global map
 global current_room
 
-map = init_l1_map()
+map = init_l2_map()
 current_room = map.get_current_room()
 
 @when("map")
