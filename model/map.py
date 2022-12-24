@@ -6,18 +6,20 @@ from lib.adventurelib import Room
 class Map:
 
     # Initializes a map containing all empty rooms
-    def __init__(self, map_rows: int, map_cols: int):
+    def __init__(self, rows: int, cols: int, starting_room_row: int, starting_room_col: int):
         self.map_grid = []
-        self.map_rows = map_rows
-        self.map_cols = map_cols
+        self.rows = rows
+        self.cols = cols
+        self.starting_room_row = starting_room_row
+        self.starting_room_col = starting_room_col
         self.current_room_row = -1
         self.current_room_col = -1
 
-        for row in range(map_rows):
-            for _ in range(map_cols):
+        for row in range(rows):
+            for _ in range(cols):
                 if len(self.map_grid) <= row:
                     self.map_grid.append([])
-                self.map_grid[row].append(init_room(RoomType.EMPTY))
+                self.map_grid[row].append(init_room())
     
     # Sets the room at a given cell's coordinates to the provided Room object
     def init_map_cell(self, room: Room, row: int, col: int):
@@ -26,13 +28,14 @@ class Map:
         room.col = col
         if row-1 >= 0 and self.map_grid[row-1][col].type != RoomType.EMPTY:
             room.north = self.map_grid[row-1][col]
-        if row+1 < self.map_rows and self.map_grid[row+1][col].type != RoomType.EMPTY:
+        if row+1 < self.rows and self.map_grid[row+1][col].type != RoomType.EMPTY:
             room.south = self.map_grid[row+1][col]
         if col-1 >= 0 and self.map_grid[row][col-1].type != RoomType.EMPTY:
             room.west = self.map_grid[row][col-1]
-        if col+1 < self.map_cols and self.map_grid[row][col+1].type != RoomType.EMPTY:
+        if col+1 < self.cols and self.map_grid[row][col+1].type != RoomType.EMPTY:
             room.east = self.map_grid[row][col+1]
 
+    
     def set_current_room(self, row: int, col: int):
         self.current_room_row = row
         self.current_room_col = col
@@ -42,11 +45,11 @@ class Map:
     def set_adjacent_rooms_seen(self, row: int, col: int):
         if row-1 >= 0 and self.map_grid[row-1][col].type != RoomType.EMPTY and self.map_grid[row-1][col].status == RoomStatus.UNSEEN:
             self.map_grid[row-1][col].status = RoomStatus.SEEN
-        if row+1 < self.map_rows and self.map_grid[row+1][col].type != RoomType.EMPTY and self.map_grid[row+1][col].status == RoomStatus.UNSEEN:
+        if row+1 < self.rows and self.map_grid[row+1][col].type != RoomType.EMPTY and self.map_grid[row+1][col].status == RoomStatus.UNSEEN:
             self.map_grid[row+1][col].status = RoomStatus.SEEN
         if col-1 >= 0 and self.map_grid[row][col-1].type != RoomType.EMPTY and self.map_grid[row][col-1].status == RoomStatus.UNSEEN:
             self.map_grid[row][col-1].status = RoomStatus.SEEN
-        if col+1 < self.map_cols and self.map_grid[row][col+1].type != RoomType.EMPTY and self.map_grid[row][col+1].status == RoomStatus.UNSEEN:
+        if col+1 < self.cols and self.map_grid[row][col+1].type != RoomType.EMPTY and self.map_grid[row][col+1].status == RoomStatus.UNSEEN:
             self.map_grid[row][col+1].status = RoomStatus.SEEN
 
     def get_current_room(self):
@@ -78,8 +81,8 @@ class Map:
         elif room.status == RoomStatus.SEEN:
             print(MAP_BORDER_CHAR + '????'.center(MAP_CELL_WIDTH - 1), end='')
         elif room.status == RoomStatus.VISITED:
-            if text_index < len(room.room_text):
-                text_to_print = room.room_text[text_index].center(MAP_CELL_WIDTH - 1)
+            if text_index < len(room.map_text):
+                text_to_print = room.map_text[text_index].center(MAP_CELL_WIDTH - 1)
                 if room.row == self.current_room_row and room.col == self.current_room_col:
                     text_to_print = '\033[92m' + text_to_print + '\033[0m'
                 print(MAP_BORDER_CHAR + text_to_print, end='')

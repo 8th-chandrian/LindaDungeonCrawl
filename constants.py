@@ -1,3 +1,4 @@
+# Map constants
 MAP_CELL_WIDTH = 15
 MAP_CELL_HEIGHT = 6
 MAP_BORDER_CHAR = '#'
@@ -13,3 +14,23 @@ BOSS_ROOM_TEXT = ['BOSS', 'FIGHT']
 DAIRY_ROOM_TEXT = ['Pittsford', 'Dairy']
 WEGMANS_ROOM_TEXT = ['Wegmans']
 LAPTOP_ROOM_TEXT = ['Laptop', 'Room'] # TODO: what do we want this room text to be?
+
+# Timing constants
+ATTACK_TEXT_DELAY = 2
+INTERACTION_TEXT_DELAY = 1.5
+
+# Character constants
+LINDA_MAX_HP = 100
+
+# Level constants
+LEVEL_ONE_STARTING_TEXT = '''
+#############################################
+######### LEVEL ONE: REWARD GATEWAY #########
+#############################################
+'''
+
+LEVEL_TWO_STARTING_TEXT = '''
+##########################################
+######## LEVEL TWO: PIONTEK GROUP ########
+##########################################
+'''
