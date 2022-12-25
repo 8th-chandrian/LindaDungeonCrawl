@@ -1,7 +1,6 @@
 class Consumable:
-    def __init__(self, name: str):
+    def __init__(self, name: str, use = None):
         self.name = name
 
-        # TODO: figure out how to implement consumable effects.
-        # - Coffee: gives Mom an extra turn (or maybe damage up, if we don't want to worry about implementing extra turn mechanics)
-        # - Chocolate chip cookie: heals Mom
+        # use is a function that takes the character as input and applies an effect to them
+        self.use = use

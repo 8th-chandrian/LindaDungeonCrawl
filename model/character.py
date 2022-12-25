@@ -7,8 +7,11 @@ class Character:
         # Starts as an empty array, but attacks are added when she obtains Failing NYT and Vitamix items
         self.attacks = []
 
-        # TODO: we need an Item model that can be used in combat
+        # Items that can be used in combat
         self.consumables = []
+
+        # Items that can be used to make other items
+        self.ingredients = []
 
         # TODO: these will be increased by items obtained
         self.passive_damage_modifier = 1

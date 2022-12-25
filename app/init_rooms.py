@@ -1,9 +1,11 @@
 import time
+from app.combat import start_combat
 from constants import *
 from model.enums import RoomType
 from model.room import init_room
 from app.init_attacks import linda_explain_vitamix, linda_nyt
 from app.init_consumables import *
+from app.init_enemies import *
 
 def print_delay(text_arr):
     for text in text_arr:
@@ -33,8 +35,7 @@ def hygge_l1_subsequent_interaction(character):
 hygge_l1 = init_room(RoomType.VISITABLE, HYGGE_ROOM_TEXT, hygge_l1_initial_interaction, hygge_l1_subsequent_interaction)
 
 def combat_full_inbox_initial_interaction(character):
-    # TODO: add combat here
-    print('Linda fought full email inbox')
+    start_combat(character, full_email_inbox)
 combat_full_inbox_l1 = init_room(RoomType.VISITABLE, COMBAT_ROOM_TEXT, combat_full_inbox_initial_interaction, defeated_enemy_subsequent_interaction)
 
 def body_pump_l1_initial_interaction(character):

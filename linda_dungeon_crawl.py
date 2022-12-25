@@ -19,10 +19,6 @@ linda_character = Character(LINDA_MAX_HP)
 def print_map():
     map.print()
 
-@when("exits")
-def print_exits():
-    print(current_room.exits())
-
 @when('north', direction='north')
 @when('south', direction='south')
 @when('east', direction='east')
@@ -76,11 +72,11 @@ def go(direction):
             map.set_current_room(room.row, room.col)
 
 # TODO: we should put the initial fight with Jackie here
-print('Linda fought Jackie (the first time)')
-time.sleep(1)
-print('Linda was defeated\n')
-time.sleep(1)
-current_room.initial_interaction(linda_character)
-time.sleep(3)
+# print('Linda fought Jackie (the first time)')
+# time.sleep(1)
+# print('Linda was defeated\n')
+# time.sleep(1)
+# current_room.initial_interaction(linda_character)
+# time.sleep(3)
 print(LEVEL_ONE_STARTING_TEXT)
 start()

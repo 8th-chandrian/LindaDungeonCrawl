@@ -24,3 +24,7 @@ class RoomStatus(Enum):
 class Level(Enum):
     L1 = 1
     L2 = 2
+
+class Action(Enum):
+    ATTACK = 1
+    ITEM = 2

@@ -1,6 +1,9 @@
 from model.consumable import Consumable
 
+
+# In-battle consumables
 coffee = Consumable("coffee")
+cookies = Consumable("cookies")
 
 # Cookie ingredients
 milk = Consumable("milk")

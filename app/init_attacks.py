@@ -51,4 +51,4 @@ linda_shrug = Attack(50, 'shrug', "Linda shrugged.\n\n\"Whatever.\"\n\nIt's supe
 linda_pacify = Attack(30, 'appease', "Linda did what she could to quell the clients' annoyances.", "pacification damage")
 
 # inferior coworkers
-coworkers_slack = Attack(40, )
+# coworkers_slack = Attack(40, )
