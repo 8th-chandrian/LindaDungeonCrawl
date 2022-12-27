@@ -15,10 +15,6 @@ DAIRY_ROOM_TEXT = ['Pittsford', 'Dairy']
 WEGMANS_ROOM_TEXT = ['Wegmans']
 LAPTOP_ROOM_TEXT = ['Laptop', 'Room'] # TODO: what do we want this room text to be?
 
-# Timing constants
-ATTACK_TEXT_DELAY = 2
-INTERACTION_TEXT_DELAY = 1.5
-
 # Character constants
 LINDA_MAX_HP = 100
 

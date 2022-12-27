@@ -1,26 +1,41 @@
 
 import random
 import time
+from lib.utils import print_delay
 
-from constants import ATTACK_TEXT_DELAY
-from model.attack import print_delay
 from model.enums import Action
+from os import system
 
 def start_combat(linda, enemy):
     linda_attacks = dict((attack.name.lower(), attack) for attack in (linda.attacks + enemy.linda_attacks))
     linda_items = dict((item.name.lower(), item) for item in linda.consumables)
     enemy_attacks = enemy.attacks
 
-    print_delay(enemy.intro_text)
+    time.sleep(1)
+    system('clear')
+    time.sleep(1)
+    print_delay(enemy.intro_text, 3)
+
+    time.sleep(3)
+
+    print_delay(f'\nLinda VS {enemy.name}', 3)
+    print_delay('FIGHT!\n\n\n', 3)
+
+    # Enemy attacks first
+    print_delay([f'{enemy.name} attacks first\n'], 2)
 
     while True:
-        # Enemy attacks first
         damage = get_enemy_attack(enemy_attacks).attack("Linda")
         linda.curr_hp -= damage
 
-        if linda.curr_hp < 0:
-            print_delay(["Oh no! Linda was defeated!"])
+        if linda.curr_hp <= 0:
+            print_delay(["Oh no! Linda was defeated!"], 3)
             break
+        else:
+            print('\n')
+            print_character_hp(linda)
+            print_enemy_hp(enemy)
+            print()
         
         # Then Mom attacks
         action = get_linda_action(linda_attacks, linda_items)
@@ -30,8 +45,9 @@ def start_combat(linda, enemy):
         if action[0] == Action.ITEM:
             action[1].use(linda)
 
-        if enemy.curr_hp < 0:
-            print_delay([enemy.name + " was defeated!"])
+        if enemy.curr_hp <= 0:
+            print_delay([enemy.name + " was defeated!"], 3)
+            system('clear')
             break
 
 def get_enemy_attack(enemy_attacks):
@@ -42,7 +58,7 @@ def get_enemy_attack(enemy_attacks):
 # returns a tuple of action type and relevant object
 def get_linda_action(linda_attacks, linda_items):
     while True:
-        print_action_options(linda_attacks)
+        print_action_options(linda_attacks, linda_items)
         action_name = input('> ')
         action_name = action_name.lower()
         if action_name.lower() in linda_attacks.keys():
@@ -55,15 +71,21 @@ def get_linda_action(linda_attacks, linda_items):
                 return (Action.ITEM, linda_items[item_name])
 
 def print_action_options(linda_attacks, linda_items):
-    prompt_string = 'Select an attack or use an item:\n'
+    prompt_arr = ['Select an attack or use an item:']
     for attack_name in linda_attacks:
-        prompt_string += attack_name + '\n'
+        prompt_arr.append(attack_name)
     if len(linda_items) > 0:
-        prompt_string += 'use item\n'
-    print(prompt_string)
+        prompt_arr.append('use item')
+    print('\n'.join(prompt_arr))
 
 def print_item_options(linda_items):
     prompt_string = 'Select an item to use:\n'
     for item_name in linda_items:
         prompt_string += item_name + '\n'
     print(prompt_string)
+
+def print_character_hp(linda):
+    print(f'Linda\'s HP:\n{linda.curr_hp} / {linda.max_hp}')
+
+def print_enemy_hp(enemy):
+    print(f'Enemy HP:\n{enemy.curr_hp} / {enemy.max_hp}')

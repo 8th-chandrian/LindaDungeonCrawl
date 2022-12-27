@@ -1,7 +1,9 @@
 import time
+from app.combat import print_character_hp
 from app.init_map import init_l1_map, init_l2_map
 from constants import LEVEL_ONE_STARTING_TEXT, LEVEL_TWO_STARTING_TEXT, LINDA_MAX_HP
 from lib.adventurelib import when, start
+from lib.utils import print_delay
 from model.character import Character
 from model.enums import Level, RoomStatus, RoomType
 
@@ -19,6 +21,11 @@ linda_character = Character(LINDA_MAX_HP)
 def print_map():
     map.print()
 
+@when("show health")
+def print_hp():
+    global linda_character
+    print_character_hp(linda_character)
+
 @when('north', direction='north')
 @when('south', direction='south')
 @when('east', direction='east')
@@ -31,8 +38,7 @@ def go(direction):
 
     room = current_room.exit(direction)
     if room:
-        print(f'Linda went {direction}.')
-        time.sleep(0.5)
+        print_delay(f'Linda went {direction}.\n', 1)
         if room.status == RoomStatus.SEEN:
             room.initial_interaction(linda_character)
         else:
@@ -43,12 +49,9 @@ def go(direction):
 
         elif room.type == RoomType.BOSS and level == Level.L1:
             # TODO: write better text for this
-            print('Linda vanquished Patrick back to the corner office from whence he had come, and in doing so, won her freedom from Reward Gateway.')
-            time.sleep(3)
-            print('Liberated, she set up an LLC and began working from home.')
-            time.sleep(3)
-            print('But little did she know...more trouble was brewing...')
-            time.sleep(3)
+            print_delay('Linda vanquished Patrick back to the corner office from whence he had come, and in doing so, won her freedom from Reward Gateway.', 3)
+            print_delay('Liberated, she set up an LLC and began working from home.', 3)
+            print_delay('But little did she know...more trouble was brewing...', 3)
 
             # TODO: text for interlude with Paul goes here
 

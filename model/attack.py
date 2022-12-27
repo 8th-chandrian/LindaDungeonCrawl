@@ -1,16 +1,10 @@
 import random
-import time
 
-from constants import ATTACK_TEXT_DELAY
-
-def print_delay(text_arr):
-    for text in text_arr:
-        print(text)
-        time.sleep(ATTACK_TEXT_DELAY)
+from lib.utils import print_delay
 
 class Attack:
 
-    def __init__(self, damage: int, name: str = '', attack_text1: str = '', attack_text2: str = ''):
+    def __init__(self, damage: int, attack_text1: str = '', attack_text2: str = '', name: str = ''):
         self.name = name
         self.damage = damage
         self.name = name
@@ -22,6 +16,6 @@ class Attack:
 
         print_delay([
             self.attack_text1,
-            enemy_name + " took " + real_damage + " " + self.attack_text2 + "."
-        ])
+            "{} took {} {}\n".format(enemy_name, real_damage, self.attack_text2)
+        ], 2.5)
         return real_damage
