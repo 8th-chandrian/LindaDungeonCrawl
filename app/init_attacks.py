@@ -39,19 +39,19 @@ john_feel_good = Attack(20, "Big John said, \"It'll make you feel good...\"", "d
 john_want_to = Attack(20, "Big John said, \"You know you want to...\"", "damage")
 linda_say_no = Attack(10, "Linda politely declined Big John's offer.", "damage", 'say no')
 
-# email inbox
-inbox_sit_there = Attack(15, "The inbox just sat there.", "damage from the stress of thinking about all those emails.")
-inbox_grow = Attack(25, "The inbox swelled in size!", "damage from the stress of thinking about all those emails.")
+# email inbox (Linda HP 100, inbox HP 50)
+inbox_sit_there = Attack(20, "The inbox just sat there.", "damage from the stress of thinking about all those emails")
+inbox_grow = Attack(30, "The inbox swelled in size!", "damage from the stress of thinking about all those emails")
 linda_delete = Attack(20, "Linda deleted a bunch of emails.", "damage", 'delete')
-linda_ignore = Attack(30, "Linda ignored a bunch of emails.\nThe inbox is devestated!", "sadness damage :(", 'ignore')
+linda_ignore_email = Attack(30, "Linda ignored a bunch of emails.\nThe inbox is devestated!", "sadness damage :(", 'ignore')
 
-# dissatisfied clients
-d_clients_attention = Attack(25, "The dissatisfied clients demanded attention.\nOh no, there are so many of them all at once!\n(this is a diss on reward gateway)", "stress damage")
-d_clients_complain = Attack(30, "The dissatisfied clients decided to complain to Patrick. Ugh, Linda got frustrated...", "damage")
+# dissatisfied clients (Linda HP 125, clients HP 75)
+d_clients_attention = Attack(30, "The dissatisfied clients demanded attention.\nOh no, there are so many of them all at once!\n(this is a diss on reward gateway)", "stress damage")
+d_clients_complain = Attack(40, "The dissatisfied clients decided to complain to Patrick. Ugh, Linda got frustrated...", "frustration damage")
 linda_shrug = Attack(50, "Linda shrugged.\n\n\"Whatever.\"\n\nIt's super effective!!", 'damage', 'shrug')
-linda_pacify = Attack(30, "Linda did what she could to quell the clients' annoyances.", "pacification damage", 'appease')
+linda_pacify = Attack(40, "Linda did what she could to quell the clients' annoyances.", "pacification damage", 'appease')
 
-# inferior coworkers
+# inferior coworkers (Linda HP 125, coworkers HP 100)
 coworkers_slack = Attack(40, "Linda's coworkers sent her ten billion slack messages asking for advice.\nAaaah, it's too much!!", "overwhelm damage")
-linda_help = Attack(20, "Linda went above and beyond helping her coworkers out.", "pacification damage", "help out")
-linda_ignore = Attack(10, "Linda ignored ", "ignore")
+linda_help = Attack(50, "Linda went above and beyond helping her coworkers out.", "pacification damage", "help out")
+linda_ignore_coworkers = Attack(60, "Linda ignored the slack messages. Her coworkers will have to fend for themselves for today, she's simply too busy.", "damage", "ignore")

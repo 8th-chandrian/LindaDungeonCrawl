@@ -9,7 +9,7 @@ from app.init_consumables import *
 from app.init_enemies import *
 
 def defeated_enemy_subsequent_interaction(character):
-    print('Linda entered a room littered with the corpses of her vanquished foes.') # TODO: this may be too aggro but I thought it was funny
+    print('Linda entered a room with the smell of battle still hanging in the air.')
 
 
 #######################################
@@ -42,7 +42,7 @@ def body_pump_l1_initial_interaction(character):
     ], 2)
     time.sleep(4)
     print_delay('Noah appeared', 2)
-    print('"Wow Mom, you\'re looking pretty swole"')
+    print('"Wow Mom, you\'re looking pretty swole!"')
     character.temp_damage_modifier = 0.2
 def body_pump_l1_subsequent_interaction(character):
     print_delay([
@@ -53,7 +53,7 @@ def body_pump_l1_subsequent_interaction(character):
 body_pump_l1 = init_room(RoomType.VISITABLE, BODY_PUMP_ROOM_TEXT, body_pump_l1_initial_interaction, body_pump_l1_subsequent_interaction)
 
 def lulu_l1_initial_interaction(character):
-    # TODO: add lululemon interaction here (obtain red rain boots?)
+    # TODO: add lululemon interaction here (obtain yoga pants which boost health +25)
     print('Linda went to Lululemon')
 def lulu_l1_subsequent_interaction(character):
     print_delay([
@@ -89,7 +89,7 @@ combat_inc_co_l1 = init_room(RoomType.VISITABLE, COMBAT_ROOM_TEXT, combat_inc_co
 def bakery_l1_initial_interaction(character):
     print_delay([
         'Linda went to the Village Bakery',
-        '"Can you only fill it up halfway and make the rest hot water?"',
+        '"Can you only fill it up halfway and make the rest hot water?"', #TODO: Noah this is such a great line hahaha
         'Linda obtained coffee!'
     ], 2)
     character.consumables.append(coffee)
@@ -177,11 +177,17 @@ dairy_l2 = init_room(RoomType.VISITABLE, DAIRY_ROOM_TEXT, dairy_l2_initial_inter
 
 def wegmans_l2_initial_interaction(character):
     # TODO: add combat with Store Bought Chocolate Chip Cookies
-    print('Linda went to Wegmans and fought Store Bought Chocolate Chip Cookies')
+    print_delay([
+        'Linda went to Wegmans.',
+        'Linda strolled down one of the aisles...',
+        'A package of store-bought chocolate chip cookies slithered up.',
+        '"Ugh, how disgusting..."'
+    ], 2)
 
     # After winning, Linda gets chocolate chips and flour (if she won)
     if character.curr_hp > 0:
         character.consumables.append([flour, sugar, choc_chips])
+        print("The store-bought cookies dropped four, sugar, and chocolate chips.")
 def wegmans_l2_subsequent_interaction(character):
     print_delay([
         'Linda went to Wegmans',
