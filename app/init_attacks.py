@@ -19,13 +19,13 @@ linda_jackie_nyt = Attack(50, 'Jackie DEMANDED to know WHY Linda wouldn\'t work 
 # jackie attacks ("yell" is an event, not an attack)
 # scoff, or something?
 
-# IRS
-IRS_tax = Attack(50, "The IRS demanded that Linda do her taxes. Oh no, they're really confusing!", "damage")
-# linda_accountant = Attack()
+# IRS (Linda HP 250, IRS HP 1000)
+IRS_tax = Attack(100, "The IRS demanded that Linda do her taxes. Oh no, they're really confusing!", "damage")
+linda_accountant = Attack(2000, "Linda hired an accountant. It's super effective!", 'damage', 'accountant')
 
-# mouse
-mouse_run = Attack(30, "The mouse skittered across the floor.\nLinda shrieked!\n\n\"If only I hadn't defeated Tilly in LINDA SUPER ULTRA MEGA BOSS RUSH 2018...\"\n", "damage")
-linda_mousetrap = Attack(10, "Linda set a mousetrap. Great, now Stella will have to clean it up later... ugh...\nWhatever. She gets another point.", "Stella pulled further ahead on the leaderboard, and the mouse was defeated!", "mousetrap")
+# mouse (Linda HP 250, mouse HP 5)
+mouse_run = Attack(50, "The mouse skittered across the floor.\nLinda shrieked!\n\n\"If only I hadn't defeated Tilly in LINDA SUPER ULTRA MEGA BOSS RUSH 2018...\"\n", "damage")
+linda_mousetrap = Attack(10, "Linda set a mousetrap. Great, now Stella will have to clean it up later... ugh...", "Stella pulled further ahead on the leaderboard, and the mouse was defeated!", "mousetrap")
 # TODO: implement linda's mousetrap thing without saying damage value
 
 # problematic clients

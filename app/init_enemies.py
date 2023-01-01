@@ -40,3 +40,26 @@ inferior_coworkers = Enemy(
     [coworkers_slack],
     [linda_help, linda_ignore_coworkers]
 )
+
+IRS = Enemy(
+    'The IRS',
+    [
+        'Linda approached the kitchen, but the IRS blocked her path.',
+        'The IRS stepped forward, menacingly.'
+    ],
+    1000,
+    [IRS_tax],
+    [linda_accountant]
+)
+
+mouse = Enemy(
+    'The mouse',
+    [
+        'Linda entered the kitchen. EEEK, A MOUSE!!!!'
+    ],
+    5,
+    [mouse_run],
+    [linda_mousetrap]
+)
+# TODO this is probably not how we want the mouse to work so I'm just doing it like this temporarily
+

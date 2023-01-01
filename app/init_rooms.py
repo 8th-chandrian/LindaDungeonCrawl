@@ -137,14 +137,24 @@ def hygge_l2_initial_interaction(character):
     character.curr_hp = character.max_hp
 def hygge_l2_subsequent_interaction(character):
     # The first time Mom visits the Hygge Zone AFTER spawning there, she should encounter Stella and obtain the Failing New York Times
-    if linda_nyt not in character.attacks:
-        # TODO: add Stella talking to Mom here and Mom falling asleep
-        print('Linda obtained the Failing New York Times!')
-        character.attacks.append(linda_nyt)
     print_delay([
-        'Linda entered the Hygge Zone',
-        'Linda healed to full health!'
+        'Linda entered the Hygge Zone.',
+        '\n'
     ], 2)
+    if linda_nyt not in character.attacks:
+        print_delay([
+            '"Okay, I\'m just gonna lie down for a little bit and then I\'ll go to the Y. I won\'t fall asleep."',
+            'Linda laid down.',
+            'Stella walked in and started talking about some Stella things.',
+            '\n',
+            STELLA1, STELLA2, STELLA3, STELLA4, STELLA5
+        ], 2)
+        print_delay(['\n','...','...','...','Linda fell asleep.'], 4)
+        print_delay(['\n','...', '\n', 'Linda woke up!', '\n'], 1)
+        print_delay(["What's this? There's something on the table here...", "Some sort of paper... Groggily, Linda leaned over to take a look.", "\n"], 2)
+        print_delay(['Linda obtained the Failing New York Times!', '\n'], 2)
+        character.attacks.append(linda_nyt)
+    print('Linda healed to full health!')
     character.curr_hp = character.max_hp
 hygge_l2 = init_room(RoomType.VISITABLE, HYGGE_ROOM_TEXT, hygge_l2_initial_interaction, hygge_l2_subsequent_interaction)
 
@@ -179,9 +189,10 @@ def wegmans_l2_initial_interaction(character):
     # TODO: add combat with Store Bought Chocolate Chip Cookies
     print_delay([
         'Linda went to Wegmans.',
-        'Linda strolled down one of the aisles...',
+        'Linda strolled down one of the aisles.',
         'A package of store-bought chocolate chip cookies slithered up.',
-        '"Ugh, how disgusting..."'
+        '"Ugh, how disgusting..."',
+        'The cookies attacked!'
     ], 2)
 
     # After winning, Linda gets chocolate chips and flour (if she won)
@@ -199,6 +210,7 @@ def laptop_l2_initial_interaction(character):
     # TODO: add interaction here
     # Linda orders the Aeron (TODO maybe the Aeron negates some portion of damage? That way we don't have to implement some sort of defense mechanic)
     print('Linda went to the laptop room (???)') # TODO do we want this to be the office? What room is the laptop in?
+    # no she fights jackie in the office. this is just a room with a laptop
 def laptop_l2_subsequent_interaction(character):
     print_delay([
         'Linda went to the laptop room (????)',
