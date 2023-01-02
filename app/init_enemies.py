@@ -63,3 +63,17 @@ mouse = Enemy(
 )
 # TODO this is probably not how we want the mouse to work so I'm just doing it like this temporarily
 
+john = Enemy(
+    'Big John',
+    [
+        'Linda ventured forth into the next room.',
+        'The smell of a mossy forest slapped her in the face.',
+        'A tent was pitched in the middle of the room. Puzzled, Linda approached.',
+        'Who did she see, emerging from the tent...?',
+        'It was Big John.',
+        '"IT\'S ME," he said. "BIG JOHN."'
+    ],
+    5,
+    [john_ask, john_everybody, john_feel_good, john_want_to],
+    [linda_say_no]
+)

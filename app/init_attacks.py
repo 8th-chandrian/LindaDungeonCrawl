@@ -20,8 +20,8 @@ linda_jackie_nyt = Attack(50, 'Jackie DEMANDED to know WHY Linda wouldn\'t work 
 # scoff, or something?
 
 # IRS (Linda HP 250, IRS HP 1000)
-IRS_tax = Attack(100, "The IRS demanded that Linda do her taxes. Oh no, they're really confusing!", "damage")
-linda_accountant = Attack(2000, "Linda hired an accountant. It's super effective!", 'damage', 'accountant')
+IRS_tax = Attack(100, "The IRS demanded that Linda do LLC taxes. Oh no, they're really confusing!", "damage")
+linda_accountant = Attack(2000, "Linda hired an accountant. It's super effective!", 'accounting damage', 'accountant')
 
 # mouse (Linda HP 250, mouse HP 5)
 mouse_run = Attack(50, "The mouse skittered across the floor.\nLinda shrieked!\n\n\"If only I hadn't defeated Tilly in LINDA SUPER ULTRA MEGA BOSS RUSH 2018...\"\n", "damage")
@@ -33,11 +33,12 @@ p_clients_expectations = Attack(30, "The problematic clients demanded that Linda
 linda_work_harder = Attack(10, "Linda gritted her teeth and simply worked harder.", "damage. It worked, but this could only go on for so long before someone got smacked with a copy of the Failing New York Times...", 'work harder')
 
 # big john
-john_ask = Attack(50, "Big John asked Linda to work with him.\n\n\"Oh brother...\" Linda thinks.\n", "damage")
-john_everybody = Attack(20, "Big John said, \"Everybody's doin' it...\"", "damage")
-john_feel_good = Attack(20, "Big John said, \"It'll make you feel good...\"", "damage")
-john_want_to = Attack(20, "Big John said, \"You know you want to...\"", "damage")
-linda_say_no = Attack(10, "Linda politely declined Big John's offer.", "damage", 'say no')
+john_ask = Attack(50, "Big John asked Linda to work with him.\n\n\"Oh brother...\" Linda thought.\n", "damage")
+# TODO make it say "Linda is paralyzed with indecision!" between Big John's attacks.
+john_everybody = Attack(20, "Big John said, \"Everybody's doin' it...\"", "indecision damage")
+john_feel_good = Attack(20, "Big John said, \"It'll make you feel good...\"", "indecision damage")
+john_want_to = Attack(20, "Big John said, \"You know you want to...\"", "indecision damage")
+linda_say_no = Attack(10, "Linda politely declined Big John's offer.", "rejection damagedamage", 'say no')
 
 # email inbox (Linda HP 100, inbox HP 50)
 inbox_sit_there = Attack(20, "The inbox just sat there.", "damage from the stress of thinking about all those emails")
