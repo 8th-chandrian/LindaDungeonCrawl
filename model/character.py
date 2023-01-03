@@ -20,4 +20,6 @@ class Character:
         # TODO: this will be increased when Mom goes to body pump
         self.temp_damage_modifier = 0
 
+        self.money_count = 0
+
     # TODO: when Mom attacks, calculate damage as (base_damage_from_attack) * (passive_damage_modifier + temp_damage_modifier)

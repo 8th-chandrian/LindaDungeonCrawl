@@ -64,7 +64,7 @@ lulu_l1 = init_room(RoomType.VISITABLE, LULU_ROOM_TEXT, lulu_l1_initial_interact
 
 def combat_diss_cust_initial_interaction(character):
     # TODO: add combat here
-    print('Linda fought dissatisfied customers')
+    print('Linda fought dissatisfied clients.')
 combat_diss_cust_l1 = init_room(RoomType.VISITABLE, COMBAT_ROOM_TEXT, combat_diss_cust_initial_interaction, defeated_enemy_subsequent_interaction)
 
 def kitchen_l1_initial_interaction(character):
@@ -89,14 +89,16 @@ combat_inc_co_l1 = init_room(RoomType.VISITABLE, COMBAT_ROOM_TEXT, combat_inc_co
 def bakery_l1_initial_interaction(character):
     print_delay([
         'Linda went to the Village Bakery',
-        '"Can you only fill it up halfway and make the rest hot water?"', #TODO: Noah this is such a great line hahaha
+        '"Can you only fill it up halfway and make the rest hot water?"',
+        # Noah this is such a great line hahaha
+        '...',
         'Linda obtained coffee!'
     ], 2)
     character.consumables.append(coffee)
 def bakery_l1_subsequent_interaction(character):
     print_delay([
         'Linda went to the Village Bakery',
-        '"I probably shouldn\'t have any more coffee. It\'ll make me jittery"'
+        '"I probably shouldn\'t have any more coffee. It\'ll make me jittery."'
     ], 2)
 bakery_l1 = init_room(RoomType.VISITABLE, BAKERY_ROOM_TEXT, bakery_l1_initial_interaction, bakery_l1_subsequent_interaction)
 

@@ -73,7 +73,47 @@ john = Enemy(
         'It was Big John.',
         '"IT\'S ME," he said. "BIG JOHN."'
     ],
-    5,
+    50,
     [john_ask, john_everybody, john_feel_good, john_want_to],
     [linda_say_no]
+)
+
+difficult_clients = Enemy(
+    "The difficult clients",
+    [
+        'Back to business.',
+        'Linda walked into the next room, and found herself face to face with some difficult clients.',
+
+    ]
+)
+
+mega_jackie = Enemy(
+    'Mega Jackie',
+    [
+        'Linda walked into her office and closed the door.',
+        'She sat down in her beautiful, glorious Aeron.',
+        'She opened her laptop.',
+        'Who did she see, staring back at her from the glossy screen?',
+        'Why, none other than...',
+        '...',
+        'MEGA JACKIE!!!',
+        '\n',
+        'Mega Jackie: "Muhahahahahaaa... LINDA PIONTEK."',
+        '"YOU THOUGHT YOU DEFEATED ME, LINDA PIONTEK."',
+        '"BUT HERE I AM... I\'VE RETURNED!!!"',
+        '"HAVE AT YOU!!!!"',
+        '\n',
+        'Mega Jackie attacked!'
+    ],
+    400,
+    [mega_jackie_guilt, mega_jackie_toxicity, mega_jackie_yell],
+    [linda_mega_jackie_nyt, linda_mega_jackie_observe, linda_mega_jackie_hangup]
+)
+
+# TODO I gotta do regular Jackie and figure out the intro. Also I should write that star wars crawl at the beginning. also switch enemy attack selection to sequential rather than random.
+jackie = Enemy(
+    'Jackie',
+    [
+        'We fade in '
+    ]
 )
