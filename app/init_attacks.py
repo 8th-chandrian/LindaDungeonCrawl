@@ -1,6 +1,6 @@
 from model.attack import Attack
 
-# TODO: I (Stella) need to go over damage values to make sure it makes sense for sequential attacks. I want these battles to go real smooth
+# TODO: I (Stella) need to go over damage values to make sure it makes sense for sequential attacks. Also make sure the order of the attacks flows well. I want these battles to go real smooth.
 
 # Linda attacks will be listed with their opponents
 # only Linda attacks need a name attribute
@@ -59,3 +59,6 @@ linda_pacify = Attack(40, "Linda did what she could to quell the clients' annoya
 coworkers_slack = Attack(40, "Linda's coworkers sent her ten billion slack messages asking for advice.\nAaaah, it's too much!!", "overwhelm damage")
 linda_help = Attack(50, "Linda went above and beyond helping her coworkers out.", "pacification damage", "help out")
 linda_ignore_coworkers = Attack(60, "Linda ignored the slack messages. Her coworkers will have to fend for themselves for today, she's simply too busy.", "damage", "ignore")
+
+# difficult clients (Linda HP 250, clients HP 250)
+dif_clients_expectations = Attack(80, "The difficult clients used the attack \"Unrealistic Expectations.\"", 'damage. "Ugh, this goes beyond the scope of the contract..." Linda muttered')

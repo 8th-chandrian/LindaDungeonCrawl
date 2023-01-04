@@ -82,10 +82,14 @@ difficult_clients = Enemy(
     "The difficult clients",
     [
         'Back to business.',
-        'Linda walked into the next room, and found herself face to face with some difficult clients.',
-
-    ]
+        'Linda walked into the next room, and found herself face to face with all of her most difficult clients.',
+        'Time for battle.',
+        'Normally Linda would sigh, but now that she runs her own business, she is more fulfilled and feels energized with the thrill of the fight!'
+    ],
+    250,
+    [dif_clients_expectations]
 )
+# TODO finish difficult clients
 
 mega_jackie = Enemy(
     'Mega Jackie',
@@ -110,7 +114,7 @@ mega_jackie = Enemy(
     [linda_mega_jackie_nyt, linda_mega_jackie_observe, linda_mega_jackie_hangup]
 )
 
-# TODO I gotta do regular Jackie and figure out the intro. Also I should write that star wars crawl at the beginning. also switch enemy attack selection to sequential rather than random.
+# TODO I gotta do regular Jackie and figure out the intro. Also I should write that star wars crawl at the beginning.
 jackie = Enemy(
     'Jackie',
     [

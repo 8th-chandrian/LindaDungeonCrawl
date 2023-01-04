@@ -83,7 +83,7 @@ kitchen_l1 = init_room(RoomType.VISITABLE, KITCHEN_ROOM_TEXT, kitchen_l1_initial
 
 def combat_inc_co_initial_interaction(character):
     # TODO: add combat here
-    print('Linda fought incompetent coworkers')
+    print('Linda fought inferior coworkers')
 combat_inc_co_l1 = init_room(RoomType.VISITABLE, COMBAT_ROOM_TEXT, combat_inc_co_initial_interaction, defeated_enemy_subsequent_interaction)
 
 def bakery_l1_initial_interaction(character):

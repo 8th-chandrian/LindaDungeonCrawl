@@ -24,9 +24,15 @@ def start_combat(linda, enemy):
     # Enemy attacks first
     print_delay([f'{enemy.name} attacks first\n'], 2)
 
+    enemy_attack_number = 0
+
     while True:
-        damage = get_enemy_attack(enemy_attacks).attack("Linda")
+        enemy_attack_number_immediate = enemy_attack_number % (len(enemy_attacks))
+        damage = enemy_attacks[enemy_attack_number_immediate].attack("Linda")
+        # damage = get_enemy_attack(enemy_attacks).attack("Linda")
         linda.curr_hp -= damage
+
+        enemy_attack_number += 1
 
         if linda.curr_hp <= 0:
             print_delay(["Oh no! Linda was defeated!"], 3)
@@ -50,10 +56,11 @@ def start_combat(linda, enemy):
             system('clear')
             break
 
-def get_enemy_attack(enemy_attacks):
-    outer_range = len(enemy_attacks)
-    next_attack_int = random.randint(0, outer_range-1)
-    return enemy_attacks[next_attack_int]
+# TODO remove this, if you (Noah) think I did a good job implementing sequential attacks
+# def get_enemy_attack(enemy_attacks):
+#     outer_range = len(enemy_attacks)
+#     next_attack_int = random.randint(0, outer_range-1)
+#     return enemy_attacks[next_attack_int]
 
 # returns a tuple of action type and relevant object
 def get_linda_action(linda_attacks, linda_items):
