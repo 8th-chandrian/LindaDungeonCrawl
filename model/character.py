@@ -7,8 +7,8 @@ class Character:
         # Starts as an empty array, but attacks are added when she obtains Failing NYT and Vitamix items
         self.attacks = []
 
-        # Items that can be used in combat
-        self.consumables = []
+        # Items that can be used in combat (maps item name to item object)
+        self.consumables = {}
 
         # Items that can be used to make other items
         self.ingredients = []
@@ -21,4 +21,7 @@ class Character:
         self.money_count = 0
 
     def get_damage_modifier(self):
-        return self.passive_damage_modifier + self.temp_damage_modifier;
+        return self.passive_damage_modifier + self.temp_damage_modifier
+    
+    def remove_consumable_from_inventory(self, consumable):
+        del self.consumables[consumable.name]

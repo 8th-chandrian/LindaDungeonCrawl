@@ -102,7 +102,7 @@ def bakery_l1_initial_interaction(character):
         '...',
         'Linda obtained coffee!'
     ], 2)
-    character.consumables.append(coffee)
+    character.consumables[coffee.name] = coffee
 def bakery_l1_subsequent_interaction(character):
     print_delay([
         'Linda went to the Village Bakery',

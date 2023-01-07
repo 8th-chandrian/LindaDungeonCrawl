@@ -8,7 +8,6 @@ from os import system
 
 def start_combat(linda, enemy):
     linda_attacks = dict((attack.name.lower(), attack) for attack in (linda.attacks + enemy.linda_attacks))
-    linda_items = dict((item.name.lower(), item) for item in linda.consumables)
     enemy_attacks = enemy.attacks
 
     time.sleep(1)
@@ -42,12 +41,14 @@ def start_combat(linda, enemy):
             print_enemy_hp(enemy)
         
         # Then Mom attacks
-        action = get_linda_action(linda_attacks, linda_items)
+        action = get_linda_action(linda_attacks, linda.consumables)
         if action[0] == Action.ATTACK:
             damage = action[1].attack(enemy.name, linda.get_damage_modifier())
             enemy.curr_hp -= damage
         if action[0] == Action.ITEM:
+            print()
             action[1].use(linda)
+            linda.remove_consumable_from_inventory(action[1])
 
         if enemy.curr_hp <= 0:
             print_delay([enemy.name + " was defeated!"], 3)
@@ -69,7 +70,7 @@ def get_linda_action(linda_attacks, linda_items):
             print_item_options(linda_items)
             item_name = input('> ')
             item_name = item_name.lower()
-            if item_name != 'back':
+            if item_name != 'back' and item_name in linda_items.keys():
                 return (Action.ITEM, linda_items[item_name])
 
 def print_action_options(linda_attacks, linda_items):
@@ -86,7 +87,7 @@ def print_action_options(linda_attacks, linda_items):
     print('\n'.join(prompt_arr))
 
 def print_item_options(linda_items):
-    prompt_string = 'Select an item to use:\n'
+    prompt_string = '\nSelect an item to use (or "back" to return to attacks):\n'
     for item_name in linda_items:
         prompt_string += item_name + '\n'
     print(prompt_string)

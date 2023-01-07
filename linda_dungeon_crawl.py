@@ -1,6 +1,6 @@
-import time
 from app.combat import print_character_hp
 from app.init_map import init_l1_map, init_l2_map
+from app.init_consumables import *
 from app.init_attacks import linda_hyperbeam, linda_splash
 from constants import LEVEL_ONE_STARTING_TEXT, LEVEL_TWO_STARTING_TEXT, LINDA_MAX_HP
 from lib.adventurelib import when, start
@@ -26,6 +26,25 @@ def print_map():
 def print_hp():
     global linda_character
     print_character_hp(linda_character)
+
+@when("show inventory")
+def print_items():
+    global linda_character
+    if len(linda_character.consumables) == 0 and len(linda_character.ingredients) == 0:
+        print('\nLinda\'s inventory is empty')
+        return
+    if len(linda_character.consumables) > 0:
+        consumables_arr = ['\nConsumables:']
+        for consumable in linda_character.consumables.keys():
+            consumables_arr.append(consumable.name)
+        consumables_str = '\n'.join(consumables_arr)
+        print(consumables_str)
+    if len(linda_character.ingredients) > 0:
+        ingredients_arr = ['\nIngredients:']
+        for ingredient in linda_character.ingredients:
+            ingredients_arr.append(ingredient.name)
+        ingredients_str = '\n'.join(ingredients_arr)
+        print(ingredients_str)
 
 @when('north', direction='north')
 @when('south', direction='south')
@@ -96,5 +115,14 @@ def go(direction):
 # TODO: delete this. I'm just adding these attacks to make testing easier
 linda_character.attacks.append(linda_hyperbeam)
 linda_character.attacks.append(linda_splash)
+
+
+# TODO: delete these items once you've tested them
+linda_character.consumables[coffee.name] = coffee
+linda_character.consumables[cookies.name] = cookies
+linda_character.ingredients.append(milk)
+linda_character.ingredients.append(eggs)
+linda_character.ingredients.append(sugar)
+
 print(LEVEL_ONE_STARTING_TEXT)
 start()
