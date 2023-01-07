@@ -14,6 +14,7 @@ class Attack:
     def attack(self, enemy_name: str = '', multiplier: int = 1):
         real_damage = (self.damage * multiplier) + random.randint(-0.2 * self.damage, 0.2 * self.damage)
 
+        print()
         print_delay([
             self.attack_text1,
             "{} took {} {}.\n".format(enemy_name, real_damage, self.attack_text2)

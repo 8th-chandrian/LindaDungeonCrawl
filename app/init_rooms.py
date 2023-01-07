@@ -40,8 +40,8 @@ def body_pump_l1_initial_interaction(character):
         'Linda got PUMPED!!!',
         'Linda\'s damage temporarily increased!'
     ], 2)
-    time.sleep(4)
-    print_delay('Noah appeared', 2)
+    time.sleep(3)
+    print_delay(['\nNoah appeared'], 2)
     print('"Wow Mom, you\'re looking pretty swole!"')
     character.temp_damage_modifier = 0.2
 def body_pump_l1_subsequent_interaction(character):
@@ -53,8 +53,15 @@ def body_pump_l1_subsequent_interaction(character):
 body_pump_l1 = init_room(RoomType.VISITABLE, BODY_PUMP_ROOM_TEXT, body_pump_l1_initial_interaction, body_pump_l1_subsequent_interaction)
 
 def lulu_l1_initial_interaction(character):
-    # TODO: add lululemon interaction here (obtain yoga pants which boost health +25)
-    print('Linda went to Lululemon')
+    print_delay([
+        'Linda went to Lululemon', 
+        '"Ooh! They have the Align pants in my size!"',
+        '"Yay!!" (fingers apart)',
+        'Linda obtained yoga pants!',
+        'Linda\'s base health increased by 25 points!'
+    ], 2)
+    character.max_hp += 25
+    character.curr_hp += 25
 def lulu_l1_subsequent_interaction(character):
     print_delay([
         'Linda went to Lululemon',
@@ -91,6 +98,7 @@ def bakery_l1_initial_interaction(character):
         'Linda went to the Village Bakery',
         '"Can you only fill it up halfway and make the rest hot water?"',
         # Noah this is such a great line hahaha
+        # Why thank you :)
         '...',
         'Linda obtained coffee!'
     ], 2)
@@ -111,14 +119,6 @@ combat_patrick_l1 = init_room(RoomType.BOSS, BOSS_ROOM_TEXT, combat_patrick_init
 ########################################
 ########## Second Floor Rooms ##########
 ########################################
-
-# TODO remove
-def combat_template_initial_interaction(character):
-    # TODO: add combat here
-    print('Linda fought XXXXX')
-combat_template_l2 = init_room(RoomType.VISITABLE, COMBAT_ROOM_TEXT, combat_template_initial_interaction, defeated_enemy_subsequent_interaction)
-
-
 
 def combat_irs_initial_interaction(character):
     # TODO: add combat here
@@ -156,7 +156,7 @@ def hygge_l2_subsequent_interaction(character):
         print_delay(["What's this? There's something on the table here...", "Some sort of paper... Groggily, Linda leaned over to take a look.", "\n"], 2)
         print_delay(['Linda obtained the Failing New York Times!', '\n'], 2)
         character.attacks.append(linda_nyt)
-    print('Linda healed to full health!')
+    print_delay(['Linda healed to full health!'], 2)
     character.curr_hp = character.max_hp
 hygge_l2 = init_room(RoomType.VISITABLE, HYGGE_ROOM_TEXT, hygge_l2_initial_interaction, hygge_l2_subsequent_interaction)
 
@@ -188,19 +188,20 @@ def dairy_l2_subsequent_interaction(character):
 dairy_l2 = init_room(RoomType.VISITABLE, DAIRY_ROOM_TEXT, dairy_l2_initial_interaction, dairy_l2_subsequent_interaction)
 
 def wegmans_l2_initial_interaction(character):
-    # TODO: add combat with Store Bought Chocolate Chip Cookies
     print_delay([
         'Linda went to Wegmans.',
         'Linda strolled down one of the aisles.',
-        'A package of store-bought chocolate chip cookies slithered up.',
+        'A package of store-bought chocolate chip cookies slithered up.', # Hahaha this is great Stella
         '"Ugh, how disgusting..."',
         'The cookies attacked!'
     ], 2)
 
-    # After winning, Linda gets chocolate chips and flour (if she won)
+    # TODO: add combat with Store Bought Chocolate Chip Cookies
+
+    # After winning, Linda gets chocolate chips, sugar, and flour (if she won)
     if character.curr_hp > 0:
         character.consumables.append([flour, sugar, choc_chips])
-        print("The store-bought cookies dropped four, sugar, and chocolate chips.")
+        print("The store-bought cookies dropped flour, sugar, and chocolate chips.")
 def wegmans_l2_subsequent_interaction(character):
     print_delay([
         'Linda went to Wegmans',

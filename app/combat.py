@@ -18,35 +18,33 @@ def start_combat(linda, enemy):
 
     time.sleep(3)
 
-    print_delay(f'\nLinda VS {enemy.name}', 3)
-    print_delay('FIGHT!\n\n\n', 3)
+    print_delay([f'\nLinda VS {enemy.name}'], 3)
+    print_delay(['FIGHT!\n\n\n'], 3)
 
     # Enemy attacks first
-    print_delay([f'{enemy.name} attacks first\n'], 2)
+    print_delay([f'{enemy.name} attacks first'], 2)
 
     enemy_attack_number = 0
 
     while True:
         enemy_attack_number_immediate = enemy_attack_number % (len(enemy_attacks))
         damage = enemy_attacks[enemy_attack_number_immediate].attack("Linda")
-        # damage = get_enemy_attack(enemy_attacks).attack("Linda")
         linda.curr_hp -= damage
 
         enemy_attack_number += 1
 
         if linda.curr_hp <= 0:
-            print_delay(["Oh no! Linda was defeated!"], 3)
+            print_delay(["Oh no! Linda was defeated!\n"], 3)
             break
         else:
             print('\n')
             print_character_hp(linda)
             print_enemy_hp(enemy)
-            print()
         
         # Then Mom attacks
         action = get_linda_action(linda_attacks, linda_items)
         if action[0] == Action.ATTACK:
-            damage = action[1].attack(enemy.name)
+            damage = action[1].attack(enemy.name, linda.get_damage_modifier())
             enemy.curr_hp -= damage
         if action[0] == Action.ITEM:
             action[1].use(linda)
@@ -55,12 +53,9 @@ def start_combat(linda, enemy):
             print_delay([enemy.name + " was defeated!"], 3)
             system('clear')
             break
-
-# TODO remove this, if you (Noah) think I did a good job implementing sequential attacks
-# def get_enemy_attack(enemy_attacks):
-#     outer_range = len(enemy_attacks)
-#     next_attack_int = random.randint(0, outer_range-1)
-#     return enemy_attacks[next_attack_int]
+    
+    # Temp damage modifier only lasts for one battle
+    linda.temp_damage_modifier = 0
 
 # returns a tuple of action type and relevant object
 def get_linda_action(linda_attacks, linda_items):
@@ -78,7 +73,12 @@ def get_linda_action(linda_attacks, linda_items):
                 return (Action.ITEM, linda_items[item_name])
 
 def print_action_options(linda_attacks, linda_items):
-    prompt_arr = ['Select an attack or use an item:']
+    prompt_arr = []
+    if len(linda_items) > 0:
+        prompt_arr.append('\nSelect an attack or use an item:')
+    else:
+        prompt_arr.append('\nSelect an attack:')
+    
     for attack_name in linda_attacks:
         prompt_arr.append(attack_name)
     if len(linda_items) > 0:

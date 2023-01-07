@@ -1,6 +1,7 @@
 import time
 from app.combat import print_character_hp
 from app.init_map import init_l1_map, init_l2_map
+from app.init_attacks import linda_hyperbeam, linda_splash
 from constants import LEVEL_ONE_STARTING_TEXT, LEVEL_TWO_STARTING_TEXT, LINDA_MAX_HP
 from lib.adventurelib import when, start
 from lib.utils import print_delay
@@ -38,7 +39,7 @@ def go(direction):
 
     room = current_room.exit(direction)
     if room:
-        print_delay(f'Linda went {direction}.\n', 1)
+        print_delay([f'Linda went {direction}.\n'], 0.75)
         if room.status == RoomStatus.SEEN:
             room.initial_interaction(linda_character)
         else:
@@ -46,12 +47,22 @@ def go(direction):
         
         if linda_character.curr_hp <= 0:
             map.set_current_room(map.starting_room_row, map.starting_room_col)
+            # TODO: Stella, let me know if you can think of better text for this. This prints when she dies and respawns
+            print_delay([
+                'Linda awoke to find herself in the Hygge Zone', 
+                '"Whew! What a rough day!"', 
+                'Linda relaxed on the couch and healed to full health',
+                'Linda felt ready to kick some ass again!'
+            ], 2)
+            linda_character.curr_hp = linda_character.max_hp
 
         elif room.type == RoomType.BOSS and level == Level.L1:
             # TODO: write better text for this
-            print_delay('Linda vanquished Patrick back to the corner office from whence he had come, and in doing so, won her freedom from Reward Gateway.', 3)
-            print_delay('Liberated, she set up an LLC and began working from home.', 3)
-            print_delay('But little did she know...more trouble was brewing...', 3)
+            print_delay([
+                'Linda vanquished Patrick back to the corner office from whence he had come, and in doing so, won her freedom from Reward Gateway.',
+                'Liberated, she set up an LLC and began working from home.',
+                'But little did she know...more trouble was brewing...'
+            ], 3)
 
             # TODO: text for interlude with Paul goes here
 
@@ -81,5 +92,9 @@ def go(direction):
 # time.sleep(1)
 # current_room.initial_interaction(linda_character)
 # time.sleep(3)
+
+# TODO: delete this. I'm just adding these attacks to make testing easier
+linda_character.attacks.append(linda_hyperbeam)
+linda_character.attacks.append(linda_splash)
 print(LEVEL_ONE_STARTING_TEXT)
 start()

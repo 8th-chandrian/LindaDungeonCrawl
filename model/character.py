@@ -16,10 +16,9 @@ class Character:
         # TODO: these will be increased by items obtained
         self.passive_damage_modifier = 1
         self.passive_defense_modifier = 1
-
-        # TODO: this will be increased when Mom goes to body pump
         self.temp_damage_modifier = 0
 
         self.money_count = 0
 
-    # TODO: when Mom attacks, calculate damage as (base_damage_from_attack) * (passive_damage_modifier + temp_damage_modifier)
+    def get_damage_modifier(self):
+        return self.passive_damage_modifier + self.temp_damage_modifier;
