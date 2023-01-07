@@ -32,11 +32,10 @@ def print_items():
     global linda_character
     if len(linda_character.consumables) == 0 and len(linda_character.ingredients) == 0:
         print('\nLinda\'s inventory is empty')
-        return
     if len(linda_character.consumables) > 0:
         consumables_arr = ['\nConsumables:']
         for consumable in linda_character.consumables.keys():
-            consumables_arr.append(consumable.name)
+            consumables_arr.append(consumable)
         consumables_str = '\n'.join(consumables_arr)
         print(consumables_str)
     if len(linda_character.ingredients) > 0:
@@ -45,6 +44,7 @@ def print_items():
             ingredients_arr.append(ingredient.name)
         ingredients_str = '\n'.join(ingredients_arr)
         print(ingredients_str)
+    print('\nMoney: ${0:.2f}'.format(linda_character.money_count))
 
 @when('north', direction='north')
 @when('south', direction='south')

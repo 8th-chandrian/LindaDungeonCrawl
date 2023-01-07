@@ -51,7 +51,9 @@ def start_combat(linda, enemy):
             linda.remove_consumable_from_inventory(action[1])
 
         if enemy.curr_hp <= 0:
-            print_delay([enemy.name + " was defeated!"], 3)
+            victory_cash = round(random.uniform(50, 200), 2)
+            linda.money_count += victory_cash
+            print_delay([enemy.name + " was defeated!", 'Linda got ${0:.2f} for winning'.format(victory_cash)], 3)
             system('clear')
             break
     
