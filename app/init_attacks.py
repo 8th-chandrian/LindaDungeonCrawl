@@ -33,9 +33,6 @@ mouse_run = Attack(50, "The mouse skittered across the floor.\nLinda shrieked!\n
 linda_mousetrap = Attack(10, "Linda set a mousetrap. Great, now Stella will have to clean it up later... ugh...", "Stella pulled further ahead on the leaderboard, and the mouse was defeated!", "mousetrap")
 # TODO: implement linda's mousetrap thing without saying damage value
 
-# problematic clients
-p_clients_expectations = Attack(30, "The problematic clients demanded that Linda go beyond the scope of the contract!", "damage")
-linda_work_harder = Attack(10, "Linda gritted her teeth and simply worked harder.", "damage. It worked, but this could only go on for so long before someone got smacked with a copy of the Failing New York Times...", 'work harder')
 
 # big john (Linda HP 250, Big John HP 50)
 john_ask = Attack(50, "Big John asked Linda to work with him.\n\n\"Oh brother...\" Linda thought.\n", "damage")
@@ -64,3 +61,4 @@ linda_ignore_coworkers = Attack(60, "Linda ignored the slack messages. Her cowor
 
 # difficult clients (Linda HP 250, clients HP 250)
 dif_clients_expectations = Attack(80, "The difficult clients used the attack \"Unrealistic Expectations.\"", 'damage. "Ugh, this goes beyond the scope of the contract..." Linda muttered')
+linda_work_harder = Attack(80, "Linda gritted her teeth and simply worked harder.", "damage. It worked, but this could only go on for so long before someone got smacked with a copy of the Failing New York Times...", 'work harder')
