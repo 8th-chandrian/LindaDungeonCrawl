@@ -121,3 +121,17 @@ mega_jackie = Enemy(
 #         'We fade in '
 #     ]
 # )
+
+store_bought_cookies = Enemy(
+    'Store-bought chocolate chip cookies',
+    [
+        'Linda went to Wegmans.',
+        'Linda strolled down one of the aisles.',
+        'A package of store-bought chocolate chip cookies slithered up.', # Hahaha this is great Stella
+        '"Ugh, how disgusting..."',
+        'The cookies attacked!'
+    ],
+    5,
+    [cookies_sit_there],
+    [linda_cookies_flex]
+)

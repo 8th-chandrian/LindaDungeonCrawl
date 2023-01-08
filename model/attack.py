@@ -1,4 +1,5 @@
 import random
+from constants import MOUSETRAP_ATTACK_NAME
 
 from lib.utils import print_delay
 
@@ -14,9 +15,13 @@ class Attack:
     def attack(self, enemy_name: str = '', multiplier: int = 1):
         real_damage = (self.damage * multiplier) + random.randint(-0.2 * self.damage, 0.2 * self.damage)
 
+        attack_text_second_line = "{} took {} {}.\n".format(enemy_name, real_damage, self.attack_text2)
+        if self.name == MOUSETRAP_ATTACK_NAME:
+            attack_text_second_line = self.attack_text2
+
         print()
         print_delay([
             self.attack_text1,
-            "{} took {} {}.\n".format(enemy_name, real_damage, self.attack_text2)
+            attack_text_second_line
         ], 2.5)
         return real_damage

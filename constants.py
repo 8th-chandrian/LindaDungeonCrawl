@@ -13,7 +13,7 @@ BAKERY_ROOM_TEXT = ['Village', 'Bakery']
 BOSS_ROOM_TEXT = ['BOSS', 'FIGHT']
 DAIRY_ROOM_TEXT = ['Pittsford', 'Dairy']
 WEGMANS_ROOM_TEXT = ['Wegmans']
-LAPTOP_ROOM_TEXT = ['Laptop', 'Room'] # TODO: what do we want this room text to be?
+FAMILY_ROOM_TEXT = ['Family', 'Room'] # TODO: what do we want this room text to be?
 
 # Character constants
 LINDA_MAX_HP = 100
@@ -30,6 +30,9 @@ LEVEL_TWO_STARTING_TEXT = '''
 ######## LEVEL TWO: PIONTEK GROUP ########
 ##########################################
 '''
+
+# Misc constants
+MOUSETRAP_ATTACK_NAME = 'mousetrap'
 
 
 # Stella speech paragraphs

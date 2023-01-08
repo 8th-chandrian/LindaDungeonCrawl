@@ -1,3 +1,4 @@
+from constants import MOUSETRAP_ATTACK_NAME
 from model.attack import Attack
 
 # TODO: I (Stella) need to go over damage values to make sure it makes sense for sequential attacks. Also make sure the order of the attacks flows well. I want these battles to go real smooth.
@@ -30,9 +31,11 @@ linda_accountant = Attack(2000, "Linda hired an accountant. It's super effective
 
 # mouse (Linda HP 250, mouse HP 5)
 mouse_run = Attack(50, "The mouse skittered across the floor.\nLinda shrieked!\n\n\"If only I hadn't defeated Tilly in LINDA SUPER ULTRA MEGA BOSS RUSH 2018...\"\n", "damage")
-linda_mousetrap = Attack(10, "Linda set a mousetrap. Great, now Stella will have to clean it up later... ugh...", "Stella pulled further ahead on the leaderboard, and the mouse was defeated!", "mousetrap")
-# TODO: implement linda's mousetrap thing without saying damage value
+linda_mousetrap = Attack(10, "Linda set a mousetrap. Great, now Stella will have to clean it up later... ugh...", "Stella pulled further ahead on the leaderboard!", MOUSETRAP_ATTACK_NAME)
 
+# store bought chocolate chip cookies (Linda HP 250, cookies HP 5)
+cookies_sit_there = Attack(50, "The cookies sat there, looking disgusting.", "grossness damage")
+linda_cookies_flex = Attack(10, 'Linda flexed on the cookies.\n"These cookies are far inferior to mine. I could bake a better batch of cookies in my sleep"', "inferiority damage", "flex")
 
 # big john (Linda HP 250, Big John HP 50)
 john_ask = Attack(50, "Big John asked Linda to work with him.\n\n\"Oh brother...\" Linda thought.\n", "damage")

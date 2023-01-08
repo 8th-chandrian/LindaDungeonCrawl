@@ -180,7 +180,7 @@ def dairy_l2_initial_interaction(character):
         'Linda went to Pittsford Farms Dairy',
         'Linda obtained milk, eggs, and butter!'
     ], 2)
-    character.consumables.append([milk, eggs, butter])
+    character.ingredients.extend([milk, eggs, butter])
 def dairy_l2_subsequent_interaction(character):
     print_delay([
         'Linda went to Pittsford Farms Dairy'
@@ -188,34 +188,30 @@ def dairy_l2_subsequent_interaction(character):
 dairy_l2 = init_room(RoomType.VISITABLE, DAIRY_ROOM_TEXT, dairy_l2_initial_interaction, dairy_l2_subsequent_interaction)
 
 def wegmans_l2_initial_interaction(character):
-    print_delay([
-        'Linda went to Wegmans.',
-        'Linda strolled down one of the aisles.',
-        'A package of store-bought chocolate chip cookies slithered up.', # Hahaha this is great Stella
-        '"Ugh, how disgusting..."',
-        'The cookies attacked!'
-    ], 2)
-
-    # TODO: add combat with Store Bought Chocolate Chip Cookies
+    start_combat(character, store_bought_cookies)
 
     # After winning, Linda gets chocolate chips, sugar, and flour (if she won)
     if character.curr_hp > 0:
-        character.consumables.append([flour, sugar, choc_chips])
+        character.ingredients.extend([flour, sugar, choc_chips])
         print("The store-bought cookies dropped flour, sugar, and chocolate chips.")
 def wegmans_l2_subsequent_interaction(character):
     print_delay([
         'Linda went to Wegmans',
-        'Store Bought Chocolate Chip Cookies were nowhere to be found'
+        'Store-bought chocolate chip cookies were nowhere to be found'
     ], 2)
 wegmans_l2 = init_room(RoomType.VISITABLE, WEGMANS_ROOM_TEXT, wegmans_l2_initial_interaction, wegmans_l2_subsequent_interaction)
 
-def laptop_l2_initial_interaction(character):
-    # TODO: add interaction here
-    # Linda orders the Aeron (TODO maybe the Aeron negates some portion of damage? That way we don't have to implement some sort of defense mechanic)
-    print('Linda went to the laptop room (???)') # TODO do we want this to be the office? What room is the laptop in?
-    # no she fights jackie in the office. this is just a room with a laptop
-def laptop_l2_subsequent_interaction(character):
+def fr_l2_initial_interaction(character):
     print_delay([
-        'Linda went to the laptop room (????)',
+        'Linda entered the family room.',
+        'There was a laptop sitting on the coffee table.',
+        'What\'s this?',
+        'The Herman Miller website is open on the laptop...and the Aeron chair is on sale???',
     ], 2)
-laptop_l2 = init_room(RoomType.VISITABLE, LAPTOP_ROOM_TEXT, laptop_l2_initial_interaction, laptop_l2_subsequent_interaction)
+    # TODO: add interaction here (only one option - "buy" but it costs more than she can afford, but tax writeoffs make it possible)
+    # TODO: what is the effect of the aeron? ++HP?
+def fr_l2_subsequent_interaction(character):
+    print_delay([
+        'Linda entered the family room.',
+    ], 2)
+laptop_l2 = init_room(RoomType.VISITABLE, FAMILY_ROOM_TEXT, fr_l2_initial_interaction, fr_l2_subsequent_interaction)
