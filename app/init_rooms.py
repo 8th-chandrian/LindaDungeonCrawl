@@ -1,5 +1,6 @@
 import time
 from app.combat import start_combat
+from app.room_logic import bake_cookies
 from constants import *
 from lib.utils import print_delay
 from model.enums import RoomType
@@ -126,9 +127,23 @@ def combat_irs_initial_interaction(character):
 combat_irs_l2 = init_room(RoomType.VISITABLE, COMBAT_ROOM_TEXT, combat_irs_initial_interaction, defeated_enemy_subsequent_interaction)
 
 def kitchen_l2_initial_interaction(character):
-    # TODO: add kitchen L2 interaction here - if she has all the ingredients, she can make cookies (and obtain the cookie consumable)
-    # Should be the same interaction every time she visits
-    print('Linda went to the kitchen')
+    print_delay(['Linda went to the kitchen.'], 2)
+    if not character.has_baked_cookies:
+        if len(character.ingredients) < 6:
+            print_delay([
+                'She thought about baking cookies, but she didn\'t have all the ingredients.',
+                '"Maybe I should make a trip to Wegmans or Pittsford Farms Dairy..."',
+            ], 2)
+        else:
+            print_delay([
+                'Linda thought about baking cookies.',
+                'She discovered that she had all the ingredients!'
+            ], 2)
+            bake_cookies(character)
+    else:
+        print_delay(['The smell of freshly-baked cookies still lingered in the air.'], 2)
+
+
 kitchen_l2 = init_room(RoomType.VISITABLE, KITCHEN_ROOM_TEXT, kitchen_l2_initial_interaction, kitchen_l2_initial_interaction)
 
 def hygge_l2_initial_interaction(character):
@@ -141,20 +156,21 @@ def hygge_l2_subsequent_interaction(character):
     # The first time Mom visits the Hygge Zone AFTER spawning there, she should encounter Stella and obtain the Failing New York Times
     print_delay([
         'Linda entered the Hygge Zone.',
-        '\n'
     ], 2)
     if linda_nyt not in character.attacks:
         print_delay([
-            '"Okay, I\'m just gonna lie down for a little bit and then I\'ll go to the Y. I won\'t fall asleep."',
+            '\n"Okay, I\'m just gonna lie down for a little bit and then I\'ll go to the Y. I won\'t fall asleep."',
             'Linda laid down.',
             'Stella walked in and started talking about some Stella things.',
             '\n',
-            STELLA1, STELLA2, STELLA3, STELLA4, STELLA5
         ], 2)
-        print_delay(['\n','...','...','...','Linda fell asleep.'], 4)
+        print_delay([STELLA1, STELLA2], 4)
+        print_delay([STELLA3], 8)
+        print_delay([STELLA4, STELLA5], 4)
+        print_delay(['\n','...','...','...','Linda fell asleep.'], 3)
         print_delay(['\n','...', '\n', 'Linda woke up!', '\n'], 1)
-        print_delay(["What's this? There's something on the table here...", "Some sort of paper... Groggily, Linda leaned over to take a look.", "\n"], 2)
-        print_delay(['Linda obtained the Failing New York Times!', '\n'], 2)
+        print_delay(["What's this? There's something on the table here...", "Some sort of paper... Groggily, Linda leaned over to take a look.\n"], 2)
+        print_delay(['Linda obtained the Failing New York Times!\n'], 2)
         character.attacks.append(linda_nyt)
     print_delay(['Linda healed to full health!'], 2)
     character.curr_hp = character.max_hp
@@ -177,13 +193,13 @@ combat_mega_jackie_l2 = init_room(RoomType.BOSS, BOSS_ROOM_TEXT, combat_mega_jac
 
 def dairy_l2_initial_interaction(character):
     print_delay([
-        'Linda went to Pittsford Farms Dairy',
+        'Linda went to Pittsford Farms Dairy.',
         'Linda obtained milk, eggs, and butter!'
     ], 2)
     character.ingredients.extend([milk, eggs, butter])
 def dairy_l2_subsequent_interaction(character):
     print_delay([
-        'Linda went to Pittsford Farms Dairy'
+        'Linda went to Pittsford Farms Dairy.'
     ], 2)
 dairy_l2 = init_room(RoomType.VISITABLE, DAIRY_ROOM_TEXT, dairy_l2_initial_interaction, dairy_l2_subsequent_interaction)
 
@@ -193,7 +209,7 @@ def wegmans_l2_initial_interaction(character):
     # After winning, Linda gets chocolate chips, sugar, and flour (if she won)
     if character.curr_hp > 0:
         character.ingredients.extend([flour, sugar, choc_chips])
-        print("The store-bought cookies dropped flour, sugar, and chocolate chips.")
+        print("Linda obtained flour, sugar, and chocolate chips!")
 def wegmans_l2_subsequent_interaction(character):
     print_delay([
         'Linda went to Wegmans',

@@ -19,6 +19,7 @@ class Character:
         self.temp_damage_modifier = 0
 
         self.money_count = 0
+        self.has_baked_cookies = False
 
     def get_damage_modifier(self):
         return self.passive_damage_modifier + self.temp_damage_modifier

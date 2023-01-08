@@ -116,13 +116,5 @@ def go(direction):
 linda_character.attacks.append(linda_hyperbeam)
 linda_character.attacks.append(linda_splash)
 
-
-# TODO: delete these items once you've tested them
-linda_character.consumables[coffee.name] = coffee
-linda_character.consumables[cookies.name] = cookies
-linda_character.ingredients.append(milk)
-linda_character.ingredients.append(eggs)
-linda_character.ingredients.append(sugar)
-
 print(LEVEL_ONE_STARTING_TEXT)
 start()
