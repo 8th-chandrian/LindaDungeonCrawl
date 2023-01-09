@@ -33,6 +33,7 @@ LEVEL_TWO_STARTING_TEXT = '''
 
 # Misc constants
 MOUSETRAP_ATTACK_NAME = 'mousetrap'
+BIG_JOHN_ENEMY_NAME = 'Big John'
 
 
 # Stella speech paragraphs

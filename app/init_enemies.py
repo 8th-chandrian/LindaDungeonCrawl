@@ -1,4 +1,5 @@
 
+from constants import BIG_JOHN_ENEMY_NAME
 from model.enemy import Enemy
 from app.init_attacks import *
 
@@ -63,8 +64,8 @@ mouse = Enemy(
     [linda_mousetrap]
 )
 
-john = Enemy(
-    'Big John',
+big_john = Enemy(
+    BIG_JOHN_ENEMY_NAME,
     [
         'Linda ventured forth into the next room.',
         'The smell of a mossy forest slapped her in the face.',

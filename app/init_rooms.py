@@ -189,8 +189,7 @@ def combat_demanding_clients_initial_interaction(character):
 combat_demanding_clients_l2 = init_room(RoomType.VISITABLE, COMBAT_ROOM_TEXT, combat_demanding_clients_initial_interaction, defeated_enemy_subsequent_interaction)
 
 def combat_big_john_initial_interaction(character):
-    # TODO: add combat here
-    print('Linda fought Big John')
+    start_combat(character, big_john)
 combat_big_john_l2 = init_room(RoomType.VISITABLE, COMBAT_ROOM_TEXT, combat_big_john_initial_interaction, defeated_enemy_subsequent_interaction)
 
 def combat_mega_jackie_initial_interaction(character):

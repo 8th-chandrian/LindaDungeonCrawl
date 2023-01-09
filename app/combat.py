@@ -1,6 +1,7 @@
 
 import random
 import time
+from constants import BIG_JOHN_ENEMY_NAME
 from lib.utils import print_delay
 
 from model.enums import Action
@@ -15,7 +16,8 @@ def start_combat(linda, enemy):
     time.sleep(1)
     print_delay(enemy.intro_text, 3)
 
-    time.sleep(3)
+    input('\n(Press <enter> to continue)')
+    system('clear')
 
     print_delay([f'\nLinda VS {enemy.name}'], 3)
     print_delay(['FIGHT!\n\n\n'], 3)
@@ -24,6 +26,7 @@ def start_combat(linda, enemy):
     print_delay([f'{enemy.name} attacks first'], 2)
 
     enemy_attack_number = 0
+    is_big_john = enemy.name == BIG_JOHN_ENEMY_NAME
 
     while True:
         enemy_attack_number_immediate = enemy_attack_number % (len(enemy_attacks))
@@ -32,8 +35,15 @@ def start_combat(linda, enemy):
 
         enemy_attack_number += 1
 
+        if is_big_john and enemy_attack_number == 1:
+            print_delay(["Linda was paralyzed with indecision!", "Linda could not attack!\n"], 2)
+            continue
+        elif is_big_john and enemy_attack_number < 4:
+            continue
+
         if linda.curr_hp <= 0:
-            print_delay(["Oh no! Linda was defeated!\n"], 3)
+            print_delay(["Oh no! Linda was defeated!\n"], 5)
+            system('clear')
             break
         else:
             print('\n')

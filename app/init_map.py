@@ -21,7 +21,6 @@ def init_l1_map() -> Map:
     
     return map
 
-# TODO: refactor L2 rooms
 def init_l2_map() -> Map:
     map = Map(rows=3, cols=5, starting_room_row=0, starting_room_col=1)
     map.init_map_cell(combat_irs_l2, 0, 0)

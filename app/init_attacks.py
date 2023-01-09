@@ -38,12 +38,12 @@ cookies_sit_there = Attack(50, "The cookies sat there, looking disgusting.", "gr
 linda_cookies_flex = Attack(10, 'Linda flexed on the cookies.\n"These cookies are far inferior to mine. I could bake a better batch of cookies in my sleep"', "inferiority damage", "flex")
 
 # big john (Linda HP 250, Big John HP 50)
-john_ask = Attack(50, "Big John asked Linda to work with him.\n\n\"Oh brother...\" Linda thought.\n", "damage")
+john_ask = Attack(50, "Big John asked Linda to work with him.\n\"Oh brother...\" Linda thought.", "damage")
 # TODO make it say "Linda is paralyzed with indecision!" between Big John's attacks, maybe? I guess that would require a separate fight function for Big John specifically though
 john_everybody = Attack(10, "Big John said, \"Everybody's doin' it...\"", "indecision damage")
 john_feel_good = Attack(10, "Big John said, \"It'll make you feel good...\"", "indecision damage")
 john_want_to = Attack(10, "Big John said, \"You know you want to...\"", "indecision damage")
-linda_say_no = Attack(10, "Linda politely declined Big John's offer.", "rejection damage", 'say no')
+linda_say_no = Attack(100, "Linda politely declined Big John's offer.", "rejection damage", 'say no')
 
 # email inbox (Linda HP 100, inbox HP 50)
 inbox_sit_there = Attack(20, "The inbox just sat there.", "damage from the stress of thinking about all those emails")

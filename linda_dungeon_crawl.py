@@ -13,10 +13,14 @@ global level
 global current_room
 global linda_character
 
-map = init_l2_map()
+map = init_l2_map() # TODO revert
 level = Level.L1
 current_room = map.get_current_room()
 linda_character = Character(LINDA_MAX_HP)
+
+# TODO: for debug purposes only. Lets you set the coordinates of the starting room
+map.set_current_room(1, 2)
+current_room = map.get_current_room()
 
 @when("map")
 def print_map():
@@ -66,7 +70,6 @@ def go(direction):
         
         if linda_character.curr_hp <= 0:
             map.set_current_room(map.starting_room_row, map.starting_room_col)
-            # TODO: Stella, let me know if you can think of better text for this. This prints when she dies and respawns
             print_delay([
                 'Linda awoke to find herself in the Hygge Zone', 
                 '"Whew! What a rough day!"', 
