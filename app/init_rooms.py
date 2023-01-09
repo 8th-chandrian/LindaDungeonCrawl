@@ -1,6 +1,6 @@
 import time
 from app.combat import start_combat
-from app.room_logic import bake_cookies
+from app.room_logic import bake_cookies, buy_aeron
 from constants import *
 from lib.utils import print_delay
 from model.enums import RoomType
@@ -230,8 +230,7 @@ def fr_l2_initial_interaction(character):
         'What\'s this?',
         'The Herman Miller website is open on the laptop...and the Aeron chair is on sale???',
     ], 2)
-    # TODO: add interaction here (only one option - "buy" but it costs more than she can afford, but tax writeoffs make it possible)
-    # TODO: what is the effect of the aeron? ++HP?
+    buy_aeron(character)
 def fr_l2_subsequent_interaction(character):
     print_delay([
         'Linda entered the family room.',

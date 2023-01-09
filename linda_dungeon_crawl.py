@@ -19,7 +19,7 @@ current_room = map.get_current_room()
 linda_character = Character(LINDA_MAX_HP)
 
 # TODO: for debug purposes only. Lets you set the coordinates of the starting room
-map.set_current_room(1, 2)
+map.set_current_room(1, 3)
 current_room = map.get_current_room()
 
 @when("map")
@@ -88,9 +88,8 @@ def go(direction):
 
             # TODO: text for interlude with Paul goes here
 
-            # TODO: what do we want to set these stats to?
-            linda_character.max_hp = 200
-            linda_character.passive_damage_modifier = 1.5
+            linda_character.max_hp = 250
+            linda_character.curr_hp = linda_character.max_hp
 
             # Init level two map
             map = init_l2_map()

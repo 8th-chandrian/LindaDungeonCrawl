@@ -1,3 +1,4 @@
+import time
 from lib.utils import print_delay
 from app.init_consumables import cookies
 
@@ -22,3 +23,33 @@ def bake_cookies(linda):
             ], 2)
             return
         print_delay(['\nUnrecognized input. Please enter Y or N'], 2)
+
+def buy_aeron(linda):
+    aeron_price = linda.money_count + 10
+    print_delay([
+        '\nPrice: ${0:.2f}'.format(aeron_price),
+        'Your funds: ${0:.2f}'.format(linda.money_count),
+    ], 2)
+    while True:
+        buy_aeron = input('\nDo you want to buy the most comfortable office chair in the world (Y/N)? ')
+        buy_aeron = buy_aeron.lower()
+        if buy_aeron == 'n' or buy_aeron == 'no':
+            print_delay(['\nAre you sure???'], 2)
+            continue
+        if buy_aeron == 'y' or buy_aeron == 'yes':
+            print_delay([
+                '\nLinda thought about buying the Aeron...',
+                'But it wasn\'t in her budget.',
+                'Saaaaaaad :(\n'
+            ], 2)
+            time.sleep(3)
+            print_delay([
+                'But then she thought some more and realized...',
+                'IT\'S TAX DEDUCTABLE!!!\n',
+                'Linda bought the Herman Miller Aeron (and it arrived in record time)!',
+                '"Oooh, great lumbar support."',
+                'Linda\'s HP increased!'
+            ], 2)
+            linda.max_hp += 150
+            linda.curr_hp += 150
+            break
