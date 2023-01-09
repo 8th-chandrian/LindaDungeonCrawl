@@ -10,7 +10,7 @@ jackie = Enemy(
         'Jackie: "Just give up, Linda. I\'ll NEVER be satisfied!!"',
         'Linda (under her breath, but Jackie can hear): "Patrick won\'t let me stop working with her..."',
         'Jackie: "Urgh- FINE." "Come on then!!!"',
-        'Jackie and Linda spring into battle!'
+        'Jackie and Linda sprang into battle!'
     ],
     200,
     [jackie_act_unpleasant, jackie_yell],

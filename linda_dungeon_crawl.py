@@ -1,9 +1,10 @@
 from os import system
-from app.combat import print_character_hp
+from app.combat import print_character_hp, start_combat
 from app.init_map import init_l1_map, init_l2_map
 from app.init_consumables import *
 from app.init_attacks import linda_hyperbeam, linda_splash, linda_explain_vitamix_l2
-from constants import LEVEL_ONE_STARTING_TEXT, LEVEL_TWO_STARTING_TEXT, LINDA_MAX_HP
+from app.init_enemies import jackie
+from constants import *
 from lib.adventurelib import when, start
 from lib.utils import print_delay
 from model.character import Character
@@ -113,7 +114,7 @@ def go(direction):
             # Init level two map
             map = init_l2_map()
             current_room = map.get_current_room()
-            print(LEVEL_TWO_STARTING_TEXT)
+            print_delay([LEVEL_TWO_STARTING_TEXT], 2)
             current_room.initial_interaction(linda_character)
             level = Level.L2
 
@@ -125,13 +126,19 @@ def go(direction):
             current_room = room
             map.set_current_room(room.row, room.col)
 
-# TODO: we should put the initial fight with Jackie here
-# print('Linda fought Jackie (the first time)')
-# time.sleep(1)
-# print('Linda was defeated\n')
-# time.sleep(1)
-# current_room.initial_interaction(linda_character)
-# time.sleep(3)
+def print_title_text():
+    print_delay([
+        TITLE_TEXT_1, 
+        TITLE_TEXT_2, 
+        TITLE_TEXT_3, 
+        TITLE_TEXT_4, 
+        TITLE_TEXT_5, 
+        TITLE_TEXT_6, 
+        TITLE_TEXT_7, 
+    ], 2)
+
+print_title_text()
+start_combat(linda_character, jackie)
 
 # TODO: delete this. I'm just adding these attacks to make testing easier
 linda_character.attacks.append(linda_hyperbeam)
@@ -147,5 +154,10 @@ linda_character.attacks.append(linda_splash)
 # linda_character.ingredients.append(flour)
 # linda_character.ingredients.append(choc_chips)
 
-print(LEVEL_ONE_STARTING_TEXT)
+print_delay([LEVEL_ONE_STARTING_TEXT], 2)
+print_delay([
+    'Linda found herself in the Hygge Zone',
+    'Linda healed to full health!'
+], 2)
+linda_character.curr_hp = linda_character.max_hp
 start()
