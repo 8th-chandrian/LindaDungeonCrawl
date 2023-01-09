@@ -55,13 +55,13 @@ IRS = Enemy(
 mouse = Enemy(
     'The mouse',
     [
-        'Linda entered the kitchen. EEEK, A MOUSE!!!!'
+        'Linda entered the kitchen.',
+        'EEEK, A MOUSE!!!!'
     ],
     5,
     [mouse_run],
     [linda_mousetrap]
 )
-# TODO this is probably not how we want the mouse to work so I'm just doing it like this temporarily
 
 john = Enemy(
     'Big John',
@@ -129,7 +129,7 @@ store_bought_cookies = Enemy(
         'Linda strolled down one of the aisles.',
         'A package of store-bought chocolate chip cookies slithered up.', # Hahaha this is great Stella
         '"Ugh, how disgusting..."',
-        'The cookies attacked!'
+        'The store-bought chocolate chip cookies attacked!'
     ],
     5,
     [cookies_sit_there],

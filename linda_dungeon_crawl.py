@@ -13,7 +13,7 @@ global level
 global current_room
 global linda_character
 
-map = init_l1_map()
+map = init_l2_map()
 level = Level.L1
 current_room = map.get_current_room()
 linda_character = Character(LINDA_MAX_HP)
@@ -115,6 +115,16 @@ def go(direction):
 # TODO: delete this. I'm just adding these attacks to make testing easier
 linda_character.attacks.append(linda_hyperbeam)
 linda_character.attacks.append(linda_splash)
+
+# This is commented out. Can uncomment for testing
+# linda_character.consumables[coffee.name] = coffee
+# linda_character.consumables[cookies.name] = cookies
+# linda_character.ingredients.append(milk)
+# linda_character.ingredients.append(eggs)
+# linda_character.ingredients.append(sugar)
+# linda_character.ingredients.append(butter)
+# linda_character.ingredients.append(flour)
+# linda_character.ingredients.append(choc_chips)
 
 print(LEVEL_ONE_STARTING_TEXT)
 start()

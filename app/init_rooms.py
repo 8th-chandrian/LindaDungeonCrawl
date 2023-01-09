@@ -127,6 +127,13 @@ def combat_irs_initial_interaction(character):
 combat_irs_l2 = init_room(RoomType.VISITABLE, COMBAT_ROOM_TEXT, combat_irs_initial_interaction, defeated_enemy_subsequent_interaction)
 
 def kitchen_l2_initial_interaction(character):
+    start_combat(character, mouse)
+    if character.curr_hp > 0:
+        print_delay([
+            'Linda proceeded to sanitize every surface in the kitchen.',
+        ], 2)
+
+def kitchen_l2_subsequent_interaction(character):
     print_delay(['Linda went to the kitchen.'], 2)
     if not character.has_baked_cookies:
         if len(character.ingredients) < 6:
@@ -144,7 +151,7 @@ def kitchen_l2_initial_interaction(character):
         print_delay(['The smell of freshly-baked cookies still lingered in the air.'], 2)
 
 
-kitchen_l2 = init_room(RoomType.VISITABLE, KITCHEN_ROOM_TEXT, kitchen_l2_initial_interaction, kitchen_l2_initial_interaction)
+kitchen_l2 = init_room(RoomType.VISITABLE, KITCHEN_ROOM_TEXT, kitchen_l2_initial_interaction, kitchen_l2_subsequent_interaction)
 
 def hygge_l2_initial_interaction(character):
     print_delay([

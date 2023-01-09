@@ -11,7 +11,7 @@ def bake_cookies(linda):
             linda.consumables[cookies.name] = cookies
             linda.has_baked_cookies = True
             print_delay([
-                '\nLinda used up all her ingredients and whipped up a batch of cookies in no time at all.',
+                '\nLinda used all her ingredients and whipped up a batch of cookies in no time at all.',
                 'Linda obtained chocolate chip cookies!'
             ], 2)
             return

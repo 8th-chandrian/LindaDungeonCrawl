@@ -31,7 +31,7 @@ linda_accountant = Attack(2000, "Linda hired an accountant. It's super effective
 
 # mouse (Linda HP 250, mouse HP 5)
 mouse_run = Attack(50, "The mouse skittered across the floor.\nLinda shrieked!\n\n\"If only I hadn't defeated Tilly in LINDA SUPER ULTRA MEGA BOSS RUSH 2018...\"\n", "damage")
-linda_mousetrap = Attack(10, "Linda set a mousetrap. Great, now Stella will have to clean it up later... ugh...", "Stella pulled further ahead on the leaderboard!", MOUSETRAP_ATTACK_NAME)
+linda_mousetrap = Attack(10, "Linda set a mousetrap. \"Great, now Stella will have to clean it up later... ugh...\"", "Stella pulled further ahead on the leaderboard!", MOUSETRAP_ATTACK_NAME)
 
 # store bought chocolate chip cookies (Linda HP 250, cookies HP 5)
 cookies_sit_there = Attack(50, "The cookies sat there, looking disgusting.", "grossness damage")

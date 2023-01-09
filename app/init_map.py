@@ -23,10 +23,10 @@ def init_l1_map() -> Map:
 
 # TODO: refactor L2 rooms
 def init_l2_map() -> Map:
-    map = Map(rows=3, cols=5, starting_room_row=1, starting_room_col=1)
+    map = Map(rows=3, cols=5, starting_room_row=0, starting_room_col=1)
     map.init_map_cell(combat_irs_l2, 0, 0)
-    map.init_map_cell(kitchen_l2, 0, 1)
-    map.init_map_cell(hygge_l2, 1, 1)
+    map.init_map_cell(kitchen_l2, 1, 1)
+    map.init_map_cell(hygge_l2, 0, 1)
     map.init_map_cell(combat_demanding_clients_l2, 1, 2)
     map.init_map_cell(combat_big_john_l2, 1, 3)
     map.init_map_cell(combat_mega_jackie_l2, 1, 4)
