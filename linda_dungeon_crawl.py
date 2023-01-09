@@ -1,7 +1,8 @@
+from os import system
 from app.combat import print_character_hp
 from app.init_map import init_l1_map, init_l2_map
 from app.init_consumables import *
-from app.init_attacks import linda_hyperbeam, linda_splash
+from app.init_attacks import linda_hyperbeam, linda_splash, linda_explain_vitamix_l2
 from constants import LEVEL_ONE_STARTING_TEXT, LEVEL_TWO_STARTING_TEXT, LINDA_MAX_HP
 from lib.adventurelib import when, start
 from lib.utils import print_delay
@@ -88,17 +89,26 @@ def go(direction):
             linda_character.curr_hp = linda_character.max_hp
 
         elif room.type == RoomType.BOSS and level == Level.L1:
-            # TODO: write better text for this
+            system('clear')
             print_delay([
                 'Linda vanquished Patrick back to the corner office from whence he had come, and in doing so, won her freedom from Reward Gateway.',
-                'Liberated, she set up an LLC and began working from home.',
-                'But little did she know...more trouble was brewing...'
-            ], 3)
+                'Liberated, she set up an LLC and began working from home.\n',
+                'Linda felt so much more relaxed from all the yoga and good sleep she now had time for.',
+                'Being well-rested caused Linda\'s damage to increase! Linda became a more potent warrior!\n',
+                'And she found luuuuuuurve when she started dating Paul!',
+                'Linda\'s HP doubled due to the power of luuuuuuurve <3\n',
+                'But little did she know...',
+                'More trouble was brewing...'
+            ], 4)
 
-            # TODO: text for interlude with Paul goes here
+            input('\n(Press <enter> to continue)')
+            system('clear')
 
             linda_character.max_hp = 250
             linda_character.curr_hp = linda_character.max_hp
+
+            # Double the vitamix's damage
+            linda_character.attacks = [linda_explain_vitamix_l2]
 
             # Init level two map
             map = init_l2_map()
