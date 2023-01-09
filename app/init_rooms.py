@@ -66,8 +66,7 @@ def lulu_l1_initial_interaction(character):
 def lulu_l1_subsequent_interaction(character):
     print_delay([
         'Linda went to Lululemon',
-        'Linda has already been to Lululemon today'
-    ], 2)
+    ], 1)
 lulu_l1 = init_room(RoomType.VISITABLE, LULU_ROOM_TEXT, lulu_l1_initial_interaction, lulu_l1_subsequent_interaction)
 
 def combat_diss_cust_initial_interaction(character):
@@ -108,7 +107,7 @@ def bakery_l1_subsequent_interaction(character):
     print_delay([
         'Linda went to the Village Bakery',
         '"I probably shouldn\'t have any more coffee. It\'ll make me jittery."'
-    ], 2)
+    ], 1)
 bakery_l1 = init_room(RoomType.VISITABLE, BAKERY_ROOM_TEXT, bakery_l1_initial_interaction, bakery_l1_subsequent_interaction)
 
 def combat_patrick_initial_interaction(character):
@@ -148,7 +147,7 @@ def kitchen_l2_subsequent_interaction(character):
             ], 2)
             bake_cookies(character)
     else:
-        print_delay(['The smell of freshly-baked cookies still lingered in the air.'], 2)
+        print_delay(['The smell of freshly-baked cookies still lingered in the air.'], 1)
 
 
 kitchen_l2 = init_room(RoomType.VISITABLE, KITCHEN_ROOM_TEXT, kitchen_l2_initial_interaction, kitchen_l2_subsequent_interaction)
@@ -179,7 +178,7 @@ def hygge_l2_subsequent_interaction(character):
         print_delay(["What's this? There's something on the table here...", "Some sort of paper... Groggily, Linda leaned over to take a look.\n"], 2)
         print_delay(['Linda obtained the Failing New York Times!\n'], 2)
         character.attacks.append(linda_nyt)
-    print_delay(['Linda healed to full health!'], 2)
+    print_delay(['Linda healed to full health!'], 1)
     character.curr_hp = character.max_hp
 hygge_l2 = init_room(RoomType.VISITABLE, HYGGE_ROOM_TEXT, hygge_l2_initial_interaction, hygge_l2_subsequent_interaction)
 
@@ -206,7 +205,7 @@ def dairy_l2_initial_interaction(character):
 def dairy_l2_subsequent_interaction(character):
     print_delay([
         'Linda went to Pittsford Farms Dairy.'
-    ], 2)
+    ], 1)
 dairy_l2 = init_room(RoomType.VISITABLE, DAIRY_ROOM_TEXT, dairy_l2_initial_interaction, dairy_l2_subsequent_interaction)
 
 def wegmans_l2_initial_interaction(character):
@@ -220,7 +219,7 @@ def wegmans_l2_subsequent_interaction(character):
     print_delay([
         'Linda went to Wegmans',
         'Store-bought chocolate chip cookies were nowhere to be found'
-    ], 2)
+    ], 1)
 wegmans_l2 = init_room(RoomType.VISITABLE, WEGMANS_ROOM_TEXT, wegmans_l2_initial_interaction, wegmans_l2_subsequent_interaction)
 
 def fr_l2_initial_interaction(character):
@@ -229,10 +228,10 @@ def fr_l2_initial_interaction(character):
         'There was a laptop sitting on the coffee table.',
         'What\'s this?',
         'The Herman Miller website is open on the laptop...and the Aeron chair is on sale???',
-    ], 2)
+    ], 3)
     buy_aeron(character)
 def fr_l2_subsequent_interaction(character):
     print_delay([
         'Linda entered the family room.',
-    ], 2)
+    ], 1)
 laptop_l2 = init_room(RoomType.VISITABLE, FAMILY_ROOM_TEXT, fr_l2_initial_interaction, fr_l2_subsequent_interaction)

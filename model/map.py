@@ -14,6 +14,8 @@ class Map:
         self.starting_room_col = starting_room_col
         self.current_room_row = -1
         self.current_room_col = -1
+        self.total_visitable_rooms = 0
+        self.visited_rooms = 0
 
         for row in range(rows):
             for _ in range(cols):
@@ -23,6 +25,11 @@ class Map:
     
     # Sets the room at a given cell's coordinates to the provided Room object
     def init_map_cell(self, room: Room, row: int, col: int):
+        if self.map_grid[row][col].type != RoomType.EMPTY:
+            raise RuntimeError('Attempting to overwrite already-initialized room')
+
+        # Track the total number of rooms
+        self.total_visitable_rooms += 1
         self.map_grid[row][col] = room
         room.row = row
         room.col = col
@@ -34,13 +41,14 @@ class Map:
             room.west = self.map_grid[row][col-1]
         if col+1 < self.cols and self.map_grid[row][col+1].type != RoomType.EMPTY:
             room.east = self.map_grid[row][col+1]
-
     
     def set_current_room(self, row: int, col: int):
         self.current_room_row = row
         self.current_room_col = col
-        self.map_grid[row][col].status = RoomStatus.VISITED
-        self.set_adjacent_rooms_seen(row, col)
+        if self.map_grid[row][col].status != RoomStatus.VISITED:
+            self.visited_rooms += 1
+            self.map_grid[row][col].status = RoomStatus.VISITED
+            self.set_adjacent_rooms_seen(row, col)
 
     def set_adjacent_rooms_seen(self, row: int, col: int):
         if row-1 >= 0 and self.map_grid[row-1][col].type != RoomType.EMPTY and self.map_grid[row-1][col].status == RoomStatus.UNSEEN:
@@ -54,9 +62,6 @@ class Map:
 
     def get_current_room(self):
         return self.map_grid[self.current_room_row][self.current_room_col]
-
-    # TODO: we probably want a "see_adjacent_rooms" function, to mark
-    # adjacent rooms to the one currently being visited as SEEN status
 
     def print(self):
         for row in range(len(self.map_grid)):

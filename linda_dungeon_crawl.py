@@ -13,14 +13,14 @@ global level
 global current_room
 global linda_character
 
-map = init_l2_map() # TODO revert
+map = init_l1_map() # TODO revert
 level = Level.L1
 current_room = map.get_current_room()
 linda_character = Character(LINDA_MAX_HP)
 
 # TODO: for debug purposes only. Lets you set the coordinates of the starting room
-map.set_current_room(1, 3)
-current_room = map.get_current_room()
+# map.set_current_room(1, 3)
+# current_room = map.get_current_room()
 
 @when("map")
 def print_map():
@@ -62,6 +62,15 @@ def go(direction):
 
     room = current_room.exit(direction)
     if room:
+        # Player should not be able to enter the boss room until they have been to every other room on the floor
+        if room.type == RoomType.BOSS and map.visited_rooms + 1 < map.total_visitable_rooms:
+            boss_room_arr = [
+                'You are attempting to enter the BOSS ROOM',
+                'You must visit all other rooms before you can enter the BOSS ROOM',
+                '(You have visited {}/{} non-boss rooms)'.format(map.visited_rooms, map.total_visitable_rooms-1)
+            ]
+            print('\n'.join(boss_room_arr))
+            return
         print_delay([f'Linda went {direction}.\n'], 0.75)
         if room.status == RoomStatus.SEEN:
             room.initial_interaction(linda_character)

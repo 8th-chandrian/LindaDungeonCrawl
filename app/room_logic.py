@@ -49,7 +49,7 @@ def buy_aeron(linda):
                 'Linda bought the Herman Miller Aeron (and it arrived in record time)!',
                 '"Oooh, great lumbar support."',
                 'Linda\'s HP increased!'
-            ], 2)
+            ], 3)
             linda.max_hp += 150
             linda.curr_hp += 150
             break
