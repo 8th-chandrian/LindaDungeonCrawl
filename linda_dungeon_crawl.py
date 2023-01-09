@@ -154,6 +154,9 @@ linda_character.attacks.append(linda_splash)
 # linda_character.ingredients.append(flour)
 # linda_character.ingredients.append(choc_chips)
 
+
+# TODO get star wars music to play with title text, then stop when jackie attacks
+
 print_delay([LEVEL_ONE_STARTING_TEXT], 2)
 print_delay([
     'Linda found herself in the Hygge Zone',
