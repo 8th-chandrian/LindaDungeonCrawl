@@ -3,6 +3,33 @@ from constants import BIG_JOHN_ENEMY_NAME
 from model.enemy import Enemy
 from app.init_attacks import *
 
+jackie = Enemy(
+    'Jackie',
+    [
+        'We fade in on a standoff between our hero and an old foe.',
+        'Jackie: "Just give up, Linda. I\'ll NEVER be satisfied!!"',
+        'Linda (under her breath, but Jackie can hear): "Patrick won\'t let me stop working with her..."',
+        'Jackie: "Urgh- FINE." "Come on then!!!"',
+        'Jackie and Linda spring into battle!'
+    ],
+    200,
+    [jackie_act_unpleasant, jackie_yell],
+    [linda_jackie_try]
+)
+
+patrick = Enemy(
+    'Patrick',
+    [
+        'Linda found herself at the exit of Reward Gateway.',
+        'She stepped forward, ready to be done.',
+        'A figure stood there, blocking her path.',
+        '\n',
+        'Patrick: "Hang on. I need to have a meeting with you, real quick."',
+    ],
+    125,
+    [patrick_work, patrick_set_up, patrick_promise],
+    [linda_patrick_recognize, linda_patrick_work, linda_patrick_push]
+)
 
 full_email_inbox = Enemy(
     'The full email inbox', 
@@ -35,10 +62,10 @@ inferior_coworkers = Enemy(
     [
         'Linda sat down at her desk, weary from her battle (meeting) with the dissatisfied clients.',
         'This desk was situated in an office full of people who just weren\'t quite as good at what they do as she was.',
-        'Sensing an opportunity, Linda\'s inferior coworkers attacked!'
+        'Sensing an opportunity to defeat her and thus gain her power, Linda\'s inferior coworkers attacked!'
     ],
     100,
-    [coworkers_slack],
+    [coworkers_slack, coworkers_collaborate],
     [linda_help, linda_ignore_coworkers]
 )
 
@@ -79,18 +106,18 @@ big_john = Enemy(
     [linda_say_no]
 )
 
-# difficult_clients = Enemy(
-#     "The difficult clients",
-#     [
-#         'Back to business.',
-#         'Linda walked into the next room, and found herself face to face with all of her most difficult clients.',
-#         'Time for battle.',
-#         'Normally Linda would sigh, but now that she runs her own business, she is more fulfilled and feels energized with the thrill of the fight!'
-#     ],
-#     250,
-#     [dif_clients_expectations]
-# )
-# TODO finish difficult clients
+difficult_clients = Enemy(
+    "The difficult clients",
+    [
+        'Back to business.',
+        'Linda walked into the next room, and found herself face to face with all of her most difficult clients.',
+        'Time for battle.',
+        'Normally Linda would sigh, but now that she runs her own business, she is more fulfilled and feels energized with the thrill of the fight!'
+    ],
+    200,
+    [dif_clients_expectations, dif_clients_red_tape],
+    [linda_dif_work_harder, linda_dif_escalate]
+)
 
 mega_jackie = Enemy(
     'Mega Jackie',
@@ -104,7 +131,7 @@ mega_jackie = Enemy(
         'MEGA JACKIE!!!',
         '\n',
         'Mega Jackie: "Muhahahahahaaa... LINDA PIONTEK."',
-        '"YOU THOUGHT YOU DEFEATED ME, LINDA PIONTEK."',
+        '"YOU THOUGHT I WAS GONE, LINDA PIONTEK."',
         '"BUT HERE I AM... I\'VE RETURNED!!!"',
         '"HAVE AT YOU!!!!"',
         '\n',
@@ -114,14 +141,6 @@ mega_jackie = Enemy(
     [mega_jackie_guilt, mega_jackie_toxicity, mega_jackie_yell],
     [linda_mega_jackie_nyt, linda_mega_jackie_observe, linda_mega_jackie_hangup]
 )
-
-# TODO I gotta do regular Jackie and figure out the intro. Also I should write that star wars crawl at the beginning.
-# jackie = Enemy(
-#     'Jackie',
-#     [
-#         'We fade in '
-#     ]
-# )
 
 store_bought_cookies = Enemy(
     'Store-bought chocolate chip cookies',
