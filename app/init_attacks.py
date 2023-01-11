@@ -21,19 +21,19 @@ linda_jackie_try = Attack(20, "Linda did her best to fix what Jackie was upset a
 
 # mega jackie attacks (Linda HP 400, Mega Jackie HP 400)
 mega_jackie_yell = Attack(120, "Mega Jackie got really mad! Oh no, she started YELLING!", "loudness damage")
-mega_jackie_toxicity = Attack(100, "Mega Jackie continued acting really toxic.\n\n\"MUAHAHAHAHAHAAAA..... MY TOXICITY HAS ONLY GROWN SINCE LAST WE FOUGHT!!!\"\n\nLinda lost sleep due to stress!", "stress damage")
+mega_jackie_toxicity = Attack(100, "Mega Jackie continued acting really toxic.\n\n\"AAAAHAHAHAHAHAAAA..... MY TOXICITY HAS ONLY GROWN SINCE LAST WE FOUGHT!!!\"\n\nLinda lost sleep due to stress!", "stress damage")
 mega_jackie_guilt = Attack(80, "Mega Jackie tried to guilt Linda into continuing to work with her.", "damage")
 linda_mega_jackie_observe = Attack(150, "Jackie yelled at Linda.\n\"Jackie, you're yelling at me,\" Linda said.\n\n...ouch.\n", "observation damage", "observe")
 linda_mega_jackie_nyt = Attack(120, 'Mega Jackie DEMANDED to know WHY Linda wouldn\'t work with her.\n\nMega Jackie: "Tell me the real reason!!!"\n\nLuckily, Linda had the Failing New York Times, allowing her to disseminate fake news effectively!', 'fake news damage', "failing nyt")
 linda_mega_jackie_hangup = Attack(200, 'Linda hung up. This dealt a DEVESTATING blow to MEGA JACKIE.', 'damage', 'hang up')
 
-# Patrick (Linda HP 125, Patrick HP 125)
-patrick_promise = Attack(50, "Patrick promised Linda that she would only have to do another few decades of exceptionally taxing work, and then it would all get better.", "poison damage")
+# Patrick (Linda HP 125, Patrick HP 150)
+patrick_promise = Attack(25, "Patrick promised Linda that she would only have to do another few decades of exceptionally taxing work, and then it would all get better.", "poison damage")
 patrick_set_up = Attack(40, "Patrick put Linda in a situation where her clients were going to be upset no matter what she did.", "damage")
-patrick_work = Attack(30, "Patrick gave Linda other people's work to do, on top of her own.", "damage")
-linda_patrick_recognize = Attack(50, "Linda took a moment just to consciously recognize how the stress of work had built up within her.", "damage", "breathe")
-linda_patrick_work = Attack(55, "Linda continued to crush it despite her difficult circumstances.", "damage", "do good work")
-linda_patrick_push = Attack(60, "Linda pushed back against some of the things Patrick was saying.", "damage", "push back")
+patrick_work = Attack(25, "Patrick gave Linda other people's work to do, on top of her own.", "damage")
+linda_patrick_recognize = Attack(40, "Linda took a moment just to consciously recognize how the stress of work had built up within her.", "damage", "breathe")
+linda_patrick_work = Attack(50, "Linda continued to crush it despite her difficult circumstances.", "damage", "do good work")
+linda_patrick_push = Attack(55, "Linda pushed back against some of the things Patrick was saying.", "damage", "push back")
 
 
 # IRS (Linda HP 250, IRS HP 1000)
@@ -75,7 +75,7 @@ linda_ignore_coworkers = Attack(50, "Linda ignored the slack messages. Her cowor
 
 # difficult clients (Linda HP 250, clients HP 200)
 # TODO: we need better text for this attack
-dif_clients_expectations = Attack(60, "The difficult clients used the attack \"Unrealistic Expectations.\"", 'damage. "Ugh, this goes beyond the scope of the contract..." Linda muttered')
+dif_clients_expectations = Attack(60, "The difficult clients built up unrealistic expectations, and then got upset when Linda couldn't meet them.", 'damage. "Ugh, this goes beyond the scope of the contract..." Linda muttered')
 dif_clients_red_tape = Attack(80, 'Linda made a good suggestion, but the difficult clients objected.\n"No, no!" they protested, "we can\'t do that! We don\'t have the budget, and there are 500,000 forms that still need to be filled out!', 'frustration damage')
 linda_dif_work_harder = Attack(80, "Linda gritted her teeth and simply worked harder.", "damage. It worked, but this could only go on for so long before someone got smacked with a copy of the Failing New York Times...", 'work harder')
 linda_dif_escalate = Attack(150, "Linda met with the bosses of the people trying to resist change, and successfully sheared through some red tape.", "damage", "escalate")

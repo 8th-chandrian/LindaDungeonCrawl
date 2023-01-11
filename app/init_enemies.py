@@ -26,7 +26,7 @@ patrick = Enemy(
         '\n',
         'Patrick: "Hang on. I need to have a meeting with you, real quick."',
     ],
-    125,
+    150,
     [patrick_work, patrick_set_up, patrick_promise],
     [linda_patrick_recognize, linda_patrick_work, linda_patrick_push]
 )
