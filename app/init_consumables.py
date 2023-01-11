@@ -9,7 +9,7 @@ def use_coffee(character):
         '"Ahh, diluted. Just the way I like it"', 
         'Linda got caffeinated! Linda\'s damage was temporarily increased!'
     ], 2)
-    character.temp_damage_modifier = 0.2
+    character.temp_damage_modifier = 1
 coffee = Consumable("coffee", use_coffee)
 
 def use_cookies(character):

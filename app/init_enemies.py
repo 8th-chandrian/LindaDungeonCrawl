@@ -1,5 +1,5 @@
 
-from constants import BIG_JOHN_ENEMY_NAME
+from constants import BIG_JOHN_ENEMY_NAME, MEGA_JACKIE_ENEMY_NAME, PATRICK_ENEMY_NAME
 from model.enemy import Enemy
 from app.init_attacks import *
 
@@ -18,7 +18,7 @@ jackie = Enemy(
 )
 
 patrick = Enemy(
-    'Patrick',
+    PATRICK_ENEMY_NAME,
     [
         'Linda found herself at the exit of Reward Gateway.',
         'She stepped forward, ready to be done.',
@@ -61,7 +61,7 @@ inferior_coworkers = Enemy(
     'The inferior coworkers',
     [
         'Linda sat down at her desk, weary from her battle (meeting) with the dissatisfied clients.',
-        'This desk was situated in an office full of people who just weren\'t quite as good at what they do as she was.',
+        'The desk was situated in an office full of people who just weren\'t quite as good at what they did as she was.',
         'Sensing an opportunity to defeat her and thus gain her power, Linda\'s inferior coworkers attacked!'
     ],
     100,
@@ -72,7 +72,7 @@ inferior_coworkers = Enemy(
 IRS = Enemy(
     'The IRS',
     [
-        'Linda approached the kitchen, but the IRS blocked her path.',
+        'Linda entered the next room. She found the IRS waiting for her.',
         'The IRS stepped forward, menacingly.'
     ],
     1000,
@@ -120,7 +120,7 @@ difficult_clients = Enemy(
 )
 
 mega_jackie = Enemy(
-    'Mega Jackie',
+    MEGA_JACKIE_ENEMY_NAME,
     [
         'Linda walked into her office and closed the door.',
         'She sat down in her beautiful, glorious Aeron.',
@@ -128,14 +128,11 @@ mega_jackie = Enemy(
         'Who did she see, staring back at her from the glossy screen?',
         'Why, none other than...',
         '...',
-        'MEGA JACKIE!!!',
-        '\n',
+        'MEGA JACKIE!!!\n',
         'Mega Jackie: "Muhahahahahaaa... LINDA PIONTEK."',
         '"YOU THOUGHT I WAS GONE, LINDA PIONTEK."',
         '"BUT HERE I AM... I\'VE RETURNED!!!"',
         '"HAVE AT YOU!!!!"',
-        '\n',
-        'Mega Jackie attacked!'
     ],
     400,
     [mega_jackie_guilt, mega_jackie_toxicity, mega_jackie_yell],

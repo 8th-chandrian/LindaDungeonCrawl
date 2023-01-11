@@ -17,7 +17,7 @@ linda_nyt = Attack(80, 'Linda landed an overhead strike with the Failing New Yor
 # jackie attacks (Linda HP 100, Jackie HP 200)
 jackie_act_unpleasant = Attack(20, "Jackie acted unpleasant, contributing to a toxic workplace environment.", "damage")
 jackie_yell = Attack(120, "Jackie got mad. Oh no, she started YELLING!", "loudness damage")
-linda_jackie_try = Attack(20, "Linda did her best to fix what Jackie was upset about.", "damage", "try")
+linda_jackie_try = Attack(20, "Linda did her best to fix what Jackie was upset about.", "damage", "try to appease")
 
 # mega jackie attacks (Linda HP 400, Mega Jackie HP 400)
 mega_jackie_yell = Attack(120, "Mega Jackie got really mad! Oh no, she started YELLING!", "loudness damage")
@@ -50,7 +50,6 @@ linda_cookies_flex = Attack(10, 'Linda flexed on the cookies.\n"These cookies ar
 
 # big john (Linda HP 250, Big John HP 50)
 john_ask = Attack(50, "Big John asked Linda to work with him.\n\"Oh brother...\" Linda thought.", "damage")
-# TODO make it say "Linda is paralyzed with indecision!" between Big John's attacks, maybe? I guess that would require a separate fight function for Big John specifically though
 john_everybody = Attack(10, "Big John said, \"Everybody's doin' it...\"", "indecision damage")
 john_feel_good = Attack(10, "Big John said, \"It'll make you feel good...\"", "indecision damage")
 john_want_to = Attack(10, "Big John said, \"You know you want to...\"", "indecision damage")
@@ -70,11 +69,12 @@ linda_pacify = Attack(35, "Linda did what she could to quell the clients' annoya
 
 # inferior coworkers (Linda HP 125, coworkers HP 100)
 coworkers_slack = Attack(30, "Linda's coworkers sent her ten billion slack messages asking for advice.\nLinda got too distracted and could't get any work done.", "overwhelm damage")
-coworkers_collaborate = Attack(40, "Linda took pity on her coworkers and helped them out... but they later took credit for her ideas.", "plagiarism damage")
+coworkers_collaborate = Attack(40, "Linda took pity on her coworkers and helped them out...but they later took credit for her ideas.", "plagiarism damage")
 linda_help = Attack(40, "Linda went above and beyond helping her coworkers out.", "pacification damage", "help out")
 linda_ignore_coworkers = Attack(50, "Linda ignored the slack messages. Her coworkers will have to fend for themselves for today, she's simply too busy.", "damage", "ignore")
 
 # difficult clients (Linda HP 250, clients HP 200)
+# TODO: we need better text for this attack
 dif_clients_expectations = Attack(60, "The difficult clients used the attack \"Unrealistic Expectations.\"", 'damage. "Ugh, this goes beyond the scope of the contract..." Linda muttered')
 dif_clients_red_tape = Attack(80, 'Linda made a good suggestion, but the difficult clients objected.\n"No, no!" they protested, "we can\'t do that! We don\'t have the budget, and there are 500,000 forms that still need to be filled out!', 'frustration damage')
 linda_dif_work_harder = Attack(80, "Linda gritted her teeth and simply worked harder.", "damage. It worked, but this could only go on for so long before someone got smacked with a copy of the Failing New York Times...", 'work harder')

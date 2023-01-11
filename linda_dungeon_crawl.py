@@ -15,12 +15,12 @@ global level
 global current_room
 global linda_character
 
-map = init_l1_map() # TODO revert
+map = init_l1_map()
 level = Level.L1
 current_room = map.get_current_room()
 linda_character = Character(LINDA_MAX_HP)
 
-# TODO: for debug purposes only. Lets you set the coordinates of the starting room
+# For debug purposes only. Lets you set the coordinates of the starting room
 # map.set_current_room(1, 3)
 # current_room = map.get_current_room()
 
@@ -80,7 +80,9 @@ def go(direction):
             room.subsequent_interaction(linda_character)
         
         if linda_character.curr_hp <= 0:
+            # Return to the hygge zone when defeated
             map.set_current_room(map.starting_room_row, map.starting_room_col)
+            current_room = map.get_current_room()
             print_delay([
                 'Linda awoke to find herself in the Hygge Zone', 
                 '"Whew! What a rough day!"', 
@@ -118,9 +120,10 @@ def go(direction):
             current_room.initial_interaction(linda_character)
             level = Level.L2
 
-        elif room.type == RoomType.BOSS and level == Level.L1:
+        elif room.type == RoomType.BOSS and level == Level.L2:
             # TODO: write finishing text
             print('Linda kicked Mega Jackie\'s ass! Booyah!!!!!')
+            exit()
             
         else:
             current_room = room

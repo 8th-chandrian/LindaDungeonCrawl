@@ -3,7 +3,7 @@ class Character:
         self.max_hp = max_hp
         self.curr_hp = max_hp
 
-        # TODO: these are Mom's base attacks that she gets from various items she picks up
+        # These are Mom's base attacks that she gets from various items she picks up
         # Starts as an empty array, but attacks are added when she obtains Failing NYT and Vitamix items
         self.attacks = []
 
@@ -13,9 +13,8 @@ class Character:
         # Items that can be used to make other items
         self.ingredients = []
 
-        # TODO: these will be increased by items obtained
+        # These will be increased by items obtained
         self.passive_damage_modifier = 1
-        self.passive_defense_modifier = 1
         self.temp_damage_modifier = 0
 
         self.money_count = 0

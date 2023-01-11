@@ -70,8 +70,7 @@ def lulu_l1_subsequent_interaction(character):
 lulu_l1 = init_room(RoomType.VISITABLE, LULU_ROOM_TEXT, lulu_l1_initial_interaction, lulu_l1_subsequent_interaction)
 
 def combat_diss_cust_initial_interaction(character):
-    # TODO: add combat here
-    print('Linda fought dissatisfied clients.')
+    start_combat(character, dissatisfied_clients)
 combat_diss_cust_l1 = init_room(RoomType.VISITABLE, COMBAT_ROOM_TEXT, combat_diss_cust_initial_interaction, defeated_enemy_subsequent_interaction)
 
 def kitchen_l1_initial_interaction(character):
@@ -81,7 +80,7 @@ def kitchen_l1_initial_interaction(character):
         'No...',
         'Can it be...?',
         'The GREATEST BLENDER EVER INVENTED???',
-        'Linda obtained a Vitamix!'
+        'Linda obtained the Vitamix!'
     ], 2)
     character.attacks.append(linda_explain_vitamix)
 def kitchen_l1_subsequent_interaction(character):
@@ -89,8 +88,7 @@ def kitchen_l1_subsequent_interaction(character):
 kitchen_l1 = init_room(RoomType.VISITABLE, KITCHEN_ROOM_TEXT, kitchen_l1_initial_interaction, kitchen_l1_subsequent_interaction)
 
 def combat_inc_co_initial_interaction(character):
-    # TODO: add combat here
-    print('Linda fought inferior coworkers')
+    start_combat(character, inferior_coworkers)
 combat_inc_co_l1 = init_room(RoomType.VISITABLE, COMBAT_ROOM_TEXT, combat_inc_co_initial_interaction, defeated_enemy_subsequent_interaction)
 
 def bakery_l1_initial_interaction(character):
@@ -111,8 +109,7 @@ def bakery_l1_subsequent_interaction(character):
 bakery_l1 = init_room(RoomType.VISITABLE, BAKERY_ROOM_TEXT, bakery_l1_initial_interaction, bakery_l1_subsequent_interaction)
 
 def combat_patrick_initial_interaction(character):
-    # TODO: add combat here
-    print('Linda fought Patrick')
+    start_combat(character, patrick)
 combat_patrick_l1 = init_room(RoomType.BOSS, BOSS_ROOM_TEXT, combat_patrick_initial_interaction, defeated_enemy_subsequent_interaction)
 
 
@@ -121,8 +118,7 @@ combat_patrick_l1 = init_room(RoomType.BOSS, BOSS_ROOM_TEXT, combat_patrick_init
 ########################################
 
 def combat_irs_initial_interaction(character):
-    # TODO: add combat here
-    print('Linda fought the IRS')
+    start_combat(character, IRS)
 combat_irs_l2 = init_room(RoomType.VISITABLE, COMBAT_ROOM_TEXT, combat_irs_initial_interaction, defeated_enemy_subsequent_interaction)
 
 def kitchen_l2_initial_interaction(character):
@@ -148,8 +144,6 @@ def kitchen_l2_subsequent_interaction(character):
             bake_cookies(character)
     else:
         print_delay(['The smell of freshly-baked cookies still lingered in the air.'], 1)
-
-
 kitchen_l2 = init_room(RoomType.VISITABLE, KITCHEN_ROOM_TEXT, kitchen_l2_initial_interaction, kitchen_l2_subsequent_interaction)
 
 def hygge_l2_initial_interaction(character):
@@ -183,8 +177,7 @@ def hygge_l2_subsequent_interaction(character):
 hygge_l2 = init_room(RoomType.VISITABLE, HYGGE_ROOM_TEXT, hygge_l2_initial_interaction, hygge_l2_subsequent_interaction)
 
 def combat_demanding_clients_initial_interaction(character):
-    # TODO: add combat here
-    print('Linda fought overly demanding clients')
+    start_combat(character, difficult_clients)
 combat_demanding_clients_l2 = init_room(RoomType.VISITABLE, COMBAT_ROOM_TEXT, combat_demanding_clients_initial_interaction, defeated_enemy_subsequent_interaction)
 
 def combat_big_john_initial_interaction(character):
@@ -192,8 +185,7 @@ def combat_big_john_initial_interaction(character):
 combat_big_john_l2 = init_room(RoomType.VISITABLE, COMBAT_ROOM_TEXT, combat_big_john_initial_interaction, defeated_enemy_subsequent_interaction)
 
 def combat_mega_jackie_initial_interaction(character):
-    # TODO: add combat here
-    print('Linda fought MEGA JACKIE')
+    start_combat(character, mega_jackie)
 combat_mega_jackie_l2 = init_room(RoomType.BOSS, BOSS_ROOM_TEXT, combat_mega_jackie_initial_interaction, defeated_enemy_subsequent_interaction)
 
 def dairy_l2_initial_interaction(character):
@@ -227,7 +219,7 @@ def fr_l2_initial_interaction(character):
         'Linda entered the family room.',
         'There was a laptop sitting on the coffee table.',
         'What\'s this?',
-        'The Herman Miller website is open on the laptop...and the Aeron chair is on sale???',
+        'The Herman Miller website is open on the laptop... and the Aeron chair is on sale???',
     ], 3)
     buy_aeron(character)
 def fr_l2_subsequent_interaction(character):

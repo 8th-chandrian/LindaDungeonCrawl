@@ -13,7 +13,7 @@ BAKERY_ROOM_TEXT = ['Village', 'Bakery']
 BOSS_ROOM_TEXT = ['BOSS', 'FIGHT']
 DAIRY_ROOM_TEXT = ['Pittsford', 'Dairy']
 WEGMANS_ROOM_TEXT = ['Wegmans']
-FAMILY_ROOM_TEXT = ['Family', 'Room'] # TODO: what do we want this room text to be?
+FAMILY_ROOM_TEXT = ['Family', 'Room']
 
 # Character constants
 LINDA_MAX_HP = 100
@@ -34,6 +34,8 @@ LEVEL_TWO_STARTING_TEXT = '''
 # Misc constants
 MOUSETRAP_ATTACK_NAME = 'mousetrap'
 BIG_JOHN_ENEMY_NAME = 'Big John'
+PATRICK_ENEMY_NAME = 'Patrick'
+MEGA_JACKIE_ENEMY_NAME = 'MEGA JACKIE'
 
 
 # Stella speech paragraphs

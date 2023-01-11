@@ -1,7 +1,7 @@
 
 import random
 import time
-from constants import BIG_JOHN_ENEMY_NAME
+from constants import BIG_JOHN_ENEMY_NAME, MEGA_JACKIE_ENEMY_NAME, PATRICK_ENEMY_NAME
 from lib.utils import print_delay
 
 from model.enums import Action
@@ -19,7 +19,13 @@ def start_combat(linda, enemy):
     input('\n(Press <enter> to continue)')
     system('clear')
 
-    print_delay([f'\nLinda VS {enemy.name}'], 3)
+    enemy_name = enemy.name
+    if enemy.name == PATRICK_ENEMY_NAME:
+        enemy_name = "Level One Boss: " + enemy_name
+    if enemy.name == MEGA_JACKIE_ENEMY_NAME:
+        enemy_name = "Level Two Boss: " + enemy_name
+
+    print_delay([f'\nLinda VS {enemy_name}'], 3)
     print_delay(['FIGHT!\n\n\n'], 3)
 
     # Enemy attacks first
@@ -43,6 +49,7 @@ def start_combat(linda, enemy):
 
         if linda.curr_hp <= 0:
             print_delay(["Oh no! Linda was defeated!\n"], 5)
+            enemy.curr_hp = enemy.max_hp
             system('clear')
             break
         else:
