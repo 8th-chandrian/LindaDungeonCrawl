@@ -1,7 +1,7 @@
 from app.combat import print_character_hp, start_combat
 from app.init_map import init_l1_map, init_l2_map
 from app.init_consumables import *
-from app.init_attacks import linda_hyperbeam, linda_splash, linda_explain_vitamix_l2
+from app.init_attacks import linda_explain_vitamix_l2
 from app.init_enemies import jackie
 from constants import *
 from lib.adventurelib import when, start
