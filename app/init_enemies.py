@@ -52,7 +52,7 @@ dissatisfied_clients = Enemy(
         'Upon sighting Linda, they all jumped up and started clamoring for her attention!',
         'Linda braced herself...'
     ],
-    75,
+    100,
     [d_clients_attention, d_clients_complain],
     [linda_shrug, linda_pacify],
     is_plural=True
@@ -65,7 +65,7 @@ inferior_coworkers = Enemy(
         'The desk was situated in an office full of people who just weren\'t quite as good at what they did as she was.',
         'Sensing an opportunity to defeat her and thus gain her power, Linda\'s inferior coworkers attacked!'
     ],
-    100,
+    125,
     [coworkers_slack, coworkers_collaborate],
     [linda_help, linda_ignore_coworkers],
     is_plural=True
@@ -88,7 +88,7 @@ mouse = Enemy(
         'Linda entered the kitchen.',
         'EEEK, A MOUSE!!!!'
     ],
-    5,
+    1000,
     [mouse_run],
     [linda_mousetrap]
 )

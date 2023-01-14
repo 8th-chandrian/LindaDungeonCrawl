@@ -117,7 +117,15 @@ def go(direction):
 
         elif room.type == RoomType.BOSS and level == Level.L2:
             # TODO: write finishing text
-            print('Linda kicked Mega Jackie\'s ass! Booyah!!!!!')
+            print_delay([
+                OUTRO0,
+                OUTRO1,
+                OUTRO2,
+                OUTRO3,
+                OUTRO4
+            ], 3)
+            input('\n(Press <enter> to continue)')
+            print_end_text()
             exit()
             
         else:
@@ -135,10 +143,26 @@ def print_title_text():
         TITLE_TEXT_7, 
     ], 2)
 
+def print_end_text():
+    print_delay([
+        '\n\n',
+        THE_END_1,
+        THE_END_2
+    ], 2)
+
 print_title_text()
 start_combat(linda_character, jackie)
 
-# TODO get star wars music to play with title text, then stop when jackie attacks
+# This is commented out. Can uncomment for testing
+# linda_character.consumables[coffee.name] = coffee
+# linda_character.consumables[cookies.name] = cookies
+# linda_character.ingredients.append(milk)
+# linda_character.ingredients.append(eggs)
+# linda_character.ingredients.append(sugar)
+# linda_character.ingredients.append(butter)
+# linda_character.ingredients.append(flour)
+# linda_character.ingredients.append(choc_chips)
+
 
 print_delay([LEVEL_ONE_STARTING_TEXT], 2)
 print_delay([

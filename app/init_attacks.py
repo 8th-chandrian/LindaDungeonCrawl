@@ -37,8 +37,8 @@ IRS_tax = Attack(100, "The IRS demanded that Linda do LLC taxes. Oh no, they're 
 linda_accountant = Attack(2000, "Linda hired an accountant. It's super effective!", 'accounting damage', 'accountant')
 
 # mouse (Linda HP 250, mouse HP 5)
-mouse_run = Attack(50, "The mouse skittered across the floor.\nLinda shrieked!\n\n\"If only I hadn't defeated Tilly in LINDA SUPER ULTRA MEGA BOSS RUSH 2018...\"\n", "damage")
-linda_mousetrap = Attack(10, "Linda set a mousetrap. \"Great, now Stella will have to clean it up later... ugh...\"", "Stella pulled further ahead on the leaderboard!", MOUSETRAP_ATTACK_NAME)
+mouse_run = Attack(10, "The mouse skittered across the floor.\nLinda shrieked!\n\n\"If only I hadn't defeated Tilly in LINDA SUPER ULTRA MEGA BOSS RUSH 2018...\"\n", "damage")
+linda_mousetrap = Attack(1000, "Linda set a mousetrap. \"Great, now Stella will have to clean it up later... ugh...\"", "Stella pulled further ahead on the leaderboard!", MOUSETRAP_ATTACK_NAME)
 
 # store bought chocolate chip cookies (Linda HP 250, cookies HP 5)
 cookies_sit_there = Attack(50, "The cookies sat there, looking disgusting.", "grossness damage")
@@ -64,8 +64,8 @@ linda_shrug = Attack(40, "Linda shrugged.\n\n\"Whatever.\"\n\nIt's super effecti
 linda_pacify = Attack(35, "Linda did what she could to quell the clients' annoyances.", "pacification damage", 'appease')
 
 # inferior coworkers (Linda HP 125, coworkers HP 100)
-coworkers_slack = Attack(30, "Linda's coworkers sent her ten billion slack messages asking for advice.\nLinda got too distracted and could't get any work done.", "overwhelm damage")
-coworkers_collaborate = Attack(40, "Linda took pity on her coworkers and helped them out...but they later took credit for her ideas.", "plagiarism damage")
+coworkers_slack = Attack(20, "Linda's coworkers sent her ten billion slack messages asking for advice.\nLinda got too distracted and could't get any work done.", "overwhelm damage")
+coworkers_collaborate = Attack(30, "Linda took pity on her coworkers and helped them out...but they later took credit for her ideas.", "plagiarism damage")
 linda_help = Attack(40, "Linda went above and beyond helping her coworkers out.", "pacification damage", "help out")
 linda_ignore_coworkers = Attack(50, "Linda ignored the slack messages. Her coworkers will have to fend for themselves for today, she's simply too busy.", "damage", "ignore")
 
