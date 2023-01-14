@@ -24,11 +24,14 @@ def start_combat(linda, enemy):
     if enemy.name == MEGA_JACKIE_ENEMY_NAME:
         enemy_name = "Level Two Boss: " + enemy_name
 
+    attacks_verb = "attack" if enemy.is_plural else "attacks"
+    was_verb = "were" if enemy.is_plural else "was"
+
     print_delay([f'\nLinda VS {enemy_name}'], 3)
     print_delay(['FIGHT!\n\n\n'], 3)
 
     # Enemy attacks first
-    print_delay([f'{enemy.name} attacks first'], 2)
+    print_delay([f'{enemy.name} {attacks_verb} first'], 2)
 
     enemy_attack_number = 0
     is_big_john = enemy.name == BIG_JOHN_ENEMY_NAME
@@ -69,7 +72,7 @@ def start_combat(linda, enemy):
         if enemy.curr_hp <= 0:
             victory_cash = round(random.uniform(50, 200), 2)
             linda.money_count += victory_cash
-            print_delay([enemy.name + " was defeated!", 'Linda got ${0:.2f} for winning'.format(victory_cash)], 3)
+            print_delay([f'{enemy.name} {was_verb} defeated', 'Linda got ${0:.2f} for winning'.format(victory_cash)], 3)
             clear()
             break
     

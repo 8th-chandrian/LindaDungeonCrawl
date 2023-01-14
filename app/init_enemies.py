@@ -54,7 +54,8 @@ dissatisfied_clients = Enemy(
     ],
     75,
     [d_clients_attention, d_clients_complain],
-    [linda_shrug, linda_pacify]
+    [linda_shrug, linda_pacify],
+    is_plural=True
 )
 
 inferior_coworkers = Enemy(
@@ -66,7 +67,8 @@ inferior_coworkers = Enemy(
     ],
     100,
     [coworkers_slack, coworkers_collaborate],
-    [linda_help, linda_ignore_coworkers]
+    [linda_help, linda_ignore_coworkers],
+    is_plural=True
 )
 
 IRS = Enemy(
@@ -116,7 +118,8 @@ difficult_clients = Enemy(
     ],
     200,
     [dif_clients_expectations, dif_clients_red_tape],
-    [linda_dif_work_harder, linda_dif_escalate]
+    [linda_dif_work_harder, linda_dif_escalate],
+    is_plural=True
 )
 
 mega_jackie = Enemy(
@@ -150,5 +153,6 @@ store_bought_cookies = Enemy(
     ],
     5,
     [cookies_sit_there],
-    [linda_cookies_flex]
+    [linda_cookies_flex],
+    is_plural=True
 )
