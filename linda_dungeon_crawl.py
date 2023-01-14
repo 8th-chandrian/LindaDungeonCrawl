@@ -19,10 +19,6 @@ level = Level.L1
 current_room = map.get_current_room()
 linda_character = Character(LINDA_MAX_HP)
 
-# For debug purposes only. Lets you set the coordinates of the starting room
-# map.set_current_room(1, 3)
-# current_room = map.get_current_room()
-
 @when("map")
 def print_map():
     map.print()
@@ -141,21 +137,6 @@ def print_title_text():
 
 print_title_text()
 start_combat(linda_character, jackie)
-
-# TODO: delete this. I'm just adding these attacks to make testing easier
-linda_character.attacks.append(linda_hyperbeam)
-linda_character.attacks.append(linda_splash)
-
-# This is commented out. Can uncomment for testing
-# linda_character.consumables[coffee.name] = coffee
-# linda_character.consumables[cookies.name] = cookies
-# linda_character.ingredients.append(milk)
-# linda_character.ingredients.append(eggs)
-# linda_character.ingredients.append(sugar)
-# linda_character.ingredients.append(butter)
-# linda_character.ingredients.append(flour)
-# linda_character.ingredients.append(choc_chips)
-
 
 # TODO get star wars music to play with title text, then stop when jackie attacks
 

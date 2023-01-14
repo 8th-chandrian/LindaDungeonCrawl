@@ -5,10 +5,6 @@ from model.attack import Attack
 # Linda attacks will be listed with their opponents
 # only Linda attacks need a name attribute
 
-# TODO: testing attacks, remove this once the game is done
-linda_hyperbeam = Attack(1000, 'Linda used hyper beam!\nLinda vaporized her foe!!!\n(Jesus Christ, talk about overkill)', 'damage', 'hyper beam')
-linda_splash = Attack(0, 'Linda used splash!\nIt had no effect', 'lame damage', 'splash')
-
 # Static Linda attacks (added when she obtains a new item)
 linda_explain_vitamix = Attack(30, 'Linda presented her Vitamix. She explained its various benefits (manifold) and drawbacks (none) to the Enemy. \nShe spoke matter-of-factly. Obviously, the Vitamix was superior.', 'psychic damage, on account of how cool Linda\'s Vitamix was', 'vitamix')
 linda_explain_vitamix_l2 = Attack(60, 'Linda presented her Vitamix. She explained its various benefits (manifold) and drawbacks (none) to the Enemy. \nShe spoke matter-of-factly. Obviously, the Vitamix was superior.', 'psychic damage, on account of how cool Linda\'s Vitamix was', 'vitamix')
