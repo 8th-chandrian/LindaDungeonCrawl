@@ -143,7 +143,7 @@ mega_jackie = Enemy(
 )
 
 store_bought_cookies = Enemy(
-    'Store-bought chocolate chip cookies',
+    'The store-bought chocolate chip cookies',
     [
         'Linda went to Wegmans.',
         'Linda strolled down one of the aisles.',

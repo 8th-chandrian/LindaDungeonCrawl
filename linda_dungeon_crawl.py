@@ -162,7 +162,7 @@ linda_character.attacks.append(linda_splash)
 print_delay([LEVEL_ONE_STARTING_TEXT], 2)
 print_delay([
     'Linda found herself in the Hygge Zone',
-    'Linda healed to full health!'
+    'Linda healed to full health!\n'
 ], 2)
 linda_character.curr_hp = linda_character.max_hp
 start()
