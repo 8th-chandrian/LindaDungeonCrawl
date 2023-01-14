@@ -15,7 +15,7 @@ class Attack:
     def attack(self, enemy_name: str = '', multiplier: int = 1):
         real_damage = (self.damage * multiplier) + random.randint(-0.2 * self.damage, 0.2 * self.damage)
 
-        attack_text_second_line = "{} took {} {}.\n".format(enemy_name, real_damage, self.attack_text2)
+        attack_text_second_line = "{} took {} {}.\n".format(enemy_name, int(real_damage), self.attack_text2)
         # This lets us do custom text for the second line of the mousetrap attack
         if self.name == MOUSETRAP_ATTACK_NAME:
             attack_text_second_line = self.attack_text2

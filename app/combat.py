@@ -2,22 +2,21 @@
 import random
 import time
 from constants import BIG_JOHN_ENEMY_NAME, MEGA_JACKIE_ENEMY_NAME, PATRICK_ENEMY_NAME
-from lib.utils import print_delay
+from lib.utils import clear, print_delay
 
 from model.enums import Action
-from os import system
 
 def start_combat(linda, enemy):
     linda_attacks = dict((attack.name.lower(), attack) for attack in (linda.attacks + enemy.linda_attacks))
     enemy_attacks = enemy.attacks
 
     time.sleep(1)
-    system('clear')
+    clear()
     time.sleep(1)
     print_delay(enemy.intro_text, 3)
 
     input('\n(Press <enter> to continue)')
-    system('clear')
+    clear()
 
     enemy_name = enemy.name
     if enemy.name == PATRICK_ENEMY_NAME:
@@ -50,7 +49,7 @@ def start_combat(linda, enemy):
         if linda.curr_hp <= 0:
             print_delay(["Oh no! Linda was defeated!\n"], 5)
             enemy.curr_hp = enemy.max_hp
-            system('clear')
+            clear()
             break
         else:
             print('\n')
@@ -71,7 +70,7 @@ def start_combat(linda, enemy):
             victory_cash = round(random.uniform(50, 200), 2)
             linda.money_count += victory_cash
             print_delay([enemy.name + " was defeated!", 'Linda got ${0:.2f} for winning'.format(victory_cash)], 3)
-            system('clear')
+            clear()
             break
     
     # Temp damage modifier only lasts for one battle

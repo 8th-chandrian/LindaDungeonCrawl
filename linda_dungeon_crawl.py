@@ -1,4 +1,3 @@
-from os import system
 from app.combat import print_character_hp, start_combat
 from app.init_map import init_l1_map, init_l2_map
 from app.init_consumables import *
@@ -6,7 +5,7 @@ from app.init_attacks import linda_hyperbeam, linda_splash, linda_explain_vitami
 from app.init_enemies import jackie
 from constants import *
 from lib.adventurelib import when, start
-from lib.utils import print_delay
+from lib.utils import clear, print_delay
 from model.character import Character
 from model.enums import Level, RoomStatus, RoomType
 
@@ -92,7 +91,7 @@ def go(direction):
             linda_character.curr_hp = linda_character.max_hp
 
         elif room.type == RoomType.BOSS and level == Level.L1:
-            system('clear')
+            clear()
             print_delay([
                 'Linda vanquished Patrick back to the corner office from whence he had come, and in doing so, won her freedom from Reward Gateway.',
                 'Liberated, she set up an LLC and began working from home.\n',
@@ -105,7 +104,7 @@ def go(direction):
             ], 4)
 
             input('\n(Press <enter> to continue)')
-            system('clear')
+            clear()
 
             linda_character.max_hp = 250
             linda_character.curr_hp = linda_character.max_hp
